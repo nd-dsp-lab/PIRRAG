@@ -1,0 +1,62 @@
+Database 64,000 vectors (dim 768), 1000 held-out queries, seed 1234, exact rerank, metric holdout_recall@10
+
+Baseline cluster sizes: min 1 / mean 15.62 / max 102   (spread 102x)
+Baseline candidates at p=100 per query: min 1,574 / median 2,278 / max 3,259  (varies per query -> occupancy leak)
+Equal-size n=128: K=500, distinct cluster sizes = [128], candidates at p are exactly p*128 for every query
+
+TARGET: baseline recall@10 at p=100 = 0.9519
+
+config                     K     p   rec@10  centroid     cands     total  vs base
+----------------------------------------------------------------------------------
+k-means K=4096          4096    25   0.8526     4,096       629     4,725    0.74x  
+k-means K=4096          4096    50   0.9121     4,096     1,202     5,298    0.83x  
+k-means K=4096          4096    75   0.9366     4,096     1,761     5,857    0.91x  
+k-means K=4096          4096   100   0.9519     4,096     2,310     6,406    1.00x  <- baseline
+k-means K=4096          4096   125   0.9641     4,096     2,852     6,948    1.08x  
+k-means K=4096          4096   150   0.9697     4,096     3,387     7,483    1.17x  
+k-means K=4096          4096   200   0.9784     4,096     4,468     8,564    1.34x  
+
+equal-size n=128         500    16   0.8818       500     2,048     2,548    0.40x  
+equal-size n=128         500    24   0.9165       500     3,072     3,572    0.56x  
+equal-size n=128         500    32   0.9365       500     4,096     4,596    0.72x  
+equal-size n=128         500    40   0.9492       500     5,120     5,620    0.88x  
+equal-size n=128         500    41   0.9505       500     5,248     5,748    0.90x  
+equal-size n=128         500    42   0.9520       500     5,376     5,876    0.92x  <- smallest p on this grid reaching the target (this run)
+equal-size n=128         500    43   0.9534       500     5,504     6,004    0.94x  <- reported operating point
+equal-size n=128         500    44   0.9545       500     5,632     6,132    0.96x  
+equal-size n=128         500    45   0.9558       500     5,760     6,260    0.98x  
+equal-size n=128         500    48   0.9586       500     6,144     6,644    1.04x  
+equal-size n=128         500    64   0.9693       500     8,192     8,692    1.36x  
+equal-size n=128         500    96   0.9797       500    12,288    12,788    2.00x  
+equal-size n=128         500   128   0.9847       500    16,384    16,884    2.64x  
+
+equal-size n=16         4000   100   0.8718     4,000     1,600     5,600    0.87x  
+equal-size n=16         4000   200   0.9213     4,000     3,200     7,200    1.12x  
+equal-size n=16         4000   300   0.9413     4,000     4,800     8,800    1.37x  
+equal-size n=16         4000   400   0.9535     4,000     6,400    10,400    1.62x  <- smallest p on this grid reaching the target
+equal-size n=16         4000   418   0.9550     4,000     6,688    10,688    1.67x  
+equal-size n=16         4000   419   0.9551     4,000     6,704    10,704    1.67x  
+equal-size n=16         4000   420   0.9551     4,000     6,720    10,720    1.67x  
+equal-size n=16         4000   450   0.9578     4,000     7,200    11,200    1.75x  
+equal-size n=16         4000   500   0.9612     4,000     8,000    12,000    1.87x  
+
+CHECKS
+  [PASS] n128_p43_reaches_baseline
+  [PASS] n128_all_clusters_exactly_128
+  [PASS] n128_K_is_ceil_N_over_128
+  [PASS] n128_p43_cheaper_in_total_than_baseline
+  [PASS] baseline_sizes_are_unequal
+  [PASS] n16_needs_far_more_probes_than_n128
+
+NOTE: the balanced assignment is not bit-reproducible across runs, so the
+smallest p that reaches the target moves by about one probe at n=128
+(this run: 42; canonical sweep: 43). p=43 is reported because it
+clears the target in every run observed.
+
+CROSS-CHECK against cluster_size_sweep/cluster_size_sweep.json
+  baseline p=100 : sweep 0.9519  now 0.9519  diff 0.0000
+  n=128 min p    : sweep 43 (recall 0.9529)  now p=43 recall 0.9534
+
+RESULT: top-100 of 4096 variable clusters and top-43 of 500 equal-size clusters reach the same recall@10 (0.9519 vs 0.9534) on identical queries. Total distance evaluations 6,406 vs 6,004 (0.94x); centroid stage 8.2x cheaper, candidate stage 2.38x more expensive but fixed at 5,504 per query.
+
+Elapsed 114s. Artifacts in verify_p43/

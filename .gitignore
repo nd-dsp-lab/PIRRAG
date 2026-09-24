@@ -1,0 +1,10 @@
+# Regenerable large artifacts (see PIR_HANDOFF.md §6 and openfhe_core/fhe_run_n128/README.md)
+prototype/pir_n128/*.npy
+wiki-rag/verify_p43/baseline/
+wiki-rag/verify_p43/n128/
+wiki-rag/verify_p43/n16/
+openfhe_core/fhe_run_n128/work/
+
+__pycache__/
+*.pyc
+.venv*/

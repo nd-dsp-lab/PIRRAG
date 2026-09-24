@@ -241,10 +241,16 @@ def run_sweep(args) -> dict:
         [args.baseline_nprobe],
     )[args.baseline_nprobe]
 
-    baseline_candidates = float(args.baseline_nprobe * base_sizes.mean())
+    # Measured per query, not nprobe * mean size: probed clusters are larger than
+    # average (queries land in dense regions), so the naive estimate is ~1.5x low.
+    base_cands = ivf_eval.candidates_per_query(
+        query_set["queries"], baseline_clustering.centroids, base_sizes, args.baseline_nprobe,
+    )
+    baseline_candidates = float(base_cands.mean())
     target = base_eval["recall"] if args.target_recall is None else args.target_recall
     print(f"\n  BASELINE {query_set['metric_name']} = {base_eval['recall']:.4f}")
-    print(f"  candidates scanned ~ {baseline_candidates:,.0f} "
+    print(f"  candidates scanned: mean {baseline_candidates:,.0f}, "
+          f"min {base_cands.min():,} / median {int(np.median(base_cands)):,} / max {base_cands.max():,} "
           f"({100.0 * baseline_candidates / n_db:.2f}% of DB, variable per query)")
     print(f"  cluster sizes: min={base_sizes.min()} max={base_sizes.max()} "
           f"mean={base_sizes.mean():.2f}")
@@ -340,6 +346,9 @@ def run_sweep(args) -> dict:
             "cluster_size_max": int(base_sizes.max()),
             "cluster_size_mean": float(base_sizes.mean()),
             "candidates_mean": baseline_candidates,
+            "candidates_min": int(base_cands.min()),
+            "candidates_median": float(np.median(base_cands)),
+            "candidates_max": int(base_cands.max()),
             "centroid_dists": args.baseline_nlist,
             "total_dists": baseline_total,
             "pct_db_scanned": 100.0 * baseline_candidates / n_db,
