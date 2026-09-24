@@ -164,6 +164,7 @@ def main():
     }
     if n16_eval:
         checks["n16_needs_far_more_probes_than_n128"] = (n16_min_p or 10**9) > 4 * 43
+    checks = {k: bool(v) for k, v in checks.items()}
 
     lines += ["", "CHECKS"]
     for name, ok in checks.items():
