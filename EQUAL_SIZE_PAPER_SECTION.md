@@ -169,3 +169,52 @@ fetch distribution, and pass/fail checks. Output: `wiki-rag/verify_p43/verify_p4
 The equal-size rows of the table above (p, candidates, penalty) come from the
 canonical sweep `wiki-rag/cluster_size_sweep/cluster_size_sweep.json`; the
 baseline's candidate figures come from the verification run.
+
+---
+
+## Scaling across database sizes (draft paragraph + table)
+
+**Protocol.** At every size the baseline is $k$-means with $K = N/16$ clusters and
+$p = K/41$ probes — the 65k configuration ($K = 4096$, $p = 100$) scaled — and the
+equal-size partition is matched to that baseline's held-out recall@10 on 1{,}000
+queries with exact reranking. For 1k and 5k the database is the first $N$ rows of
+the 65k index and the queries are drawn from rows beyond $N$; for the larger sizes
+the queries are held out of the corpus. The 1M and 10M databases are the
+`top_1000000` and `top_10000000` Wikipedia indices (702{,}873 and 1{,}120{,}486
+vectors; the names count articles, not passages). At each size we report the
+cluster width $n \in \{16, 32, 64, 128, 256\}$ with the lowest total cost.
+
+| database | $N$ | baseline $K$ / $p$ | recall@10 | baseline fetch (range) | baseline total | $n$ | $K$ | $p$ | fetch $= p\cdot n$ | total | vs. base | penalty |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1k | 1{,}000 | 62 / 2 | 0.5995 | 47 (11–133) | 109 | 32 | 32 | 2 | 64 | 96 | 0.88× | 1.067 |
+| 5k | 5{,}000 | 312 / 8 | 0.8171 | 183 (80–323) | 495 | 64 | 79 | 6 | 384 | 463 | 0.93× | 1.051 |
+| 65k | 64{,}000 | 4{,}096 / 100 | 0.9519 | 2{,}310 (1{,}574–3{,}259) | 6{,}406 | 128 | 500 | 43 | 5{,}504 | 6{,}004 | 0.94× | 1.054 |
+| 1M | 701{,}873 | 43{,}867 / 1{,}070 | 0.9855 | 26{,}046 (21{,}168–31{,}241) | 69{,}913 | 256 | 2{,}742 | 232 | 59{,}392 | 62{,}134 | 0.89× | 1.037 |
+| 10M | 1{,}119{,}486 | 69{,}968 / 1{,}707 | 0.9915 | 42{,}236 (34{,}593–50{,}944) | 112{,}204 | 256 | 4{,}373 | 546 | 139{,}776 | 144{,}149 | 1.28× | 1.036 |
+
+($N$ is the database actually clustered in the measurement: the full prefix for 1k/5k,
+the corpus minus the 1{,}000 held-out queries otherwise. Shipped artifacts are built on
+the full corpus, so their $K$ is marginally larger: 508, 2{,}746, 4{,}377.)
+
+**Reading.** The balance penalty is flat (3.6–6.7%) from 1k to 10M, and the optimal
+cluster width grows with $N$ ($32 \to 64 \to 128 \to 256$), because a larger $N$
+leaves enough clusters at a wide $n$ for the centroid stage to be cheap while the
+candidate stage stays uniform. Through 1M the equal-size partition costs *less* in
+total than the scaled baseline (0.88–0.94×) at identical recall while removing the
+1.5–12× per-query variation in fetch size. At 10M the picture changes: the
+baseline's recall target rises to 0.9915 under the $K = N/16$, $p = K/41$ rule, and
+at that operating point the equal-size candidate stage is 3.3× the baseline's fetch
+(versus 2.1–2.4× at 5k–1M), for a total of 1.28× — the same at $n = 128$ ($p =
+1{,}055$) and $n = 256$ ($p = 546$). The last fraction of a percent of recall lives in
+dense regions, exactly where $k$-means' large clusters do the most work, so the
+cost of giving up adaptivity grows with the recall target rather than with $N$
+itself. The 10M configuration still delivers the fixed-shape guarantees, and its
+centroid stage is 16× cheaper than the baseline's 69{,}968 comparisons (547 vs
+8{,}746 packed ciphertexts), but its PIR fetch is not free; if a lower recall target
+is acceptable at that scale, the $n = 128$ curve gives 0.9627 at $p = 256$
+(32{,}768 records) and 0.9821 at $p = 512$.
+
+Sources: `wiki-rag/cluster_size_sweep_small/sweep_small.md`,
+`wiki-rag/cluster_size_sweep_1M/recall_analysis_constant_size.txt`,
+`wiki-rag/cluster_size_sweep_10M/recall_analysis_constant_size.txt`,
+`wiki-rag/verify_p43/verify_p43.txt`.

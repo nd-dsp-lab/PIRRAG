@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "sizing_mode": "constant-size",
+  "n_vectors": 1000,
+  "dim": 768,
+  "nlist": 8,
+  "cluster_size": 128,
+  "total_slots": 1024,
+  "n_padded_slots": 24,
+  "padding_sentinel": -1,
+  "id_mapping": "global_vector_id = slots[cid][idx]; slot_address = cid * cluster_size + idx",
+  "id_space": "database",
+  "assignment": "balanced",
+  "assignment_params": {
+    "top_m": 8,
+    "price_iters": 200,
+    "strategy": "balanced",
+    "price_iters_run": 200,
+    "overflow_after_prices": 4,
+    "n_evicted": 4,
+    "n_outside_topm": 0,
+    "lambda_max": 0.08672032428227296,
+    "lambda_nonzero_frac": 0.625,
+    "candidate_search_seconds": 0.001,
+    "assignment_seconds": 0.014
+  },
+  "index_type": "ivf-flat",
+  "centroid_space": "raw",
+  "nprobe": 10,
+  "recall_k": 10,
+  "pq": null,
+  "kmeans": {
+    "niter": 20,
+    "seed": 1234,
+    "min_points_per_centroid": 1,
+    "max_points_per_centroid": 256
+  },
+  "recall_mode": "prefix-heldout",
+  "recall_metric_name": "heldout_recall@10",
+  "recall_by_nprobe": {},
+  "artifacts": {
+    "centroids": "centroids.npy",
+    "slots": "cluster_slots.npy",
+    "lists": "lists.json"
+  },
+  "diagnostics": {
+    "distance_units": "squared_l2",
+    "size_histogram": {
+      "112": 1,
+      "122": 1,
+      "126": 1,
+      "128": 5
+    },
+    "n_padded_slots": 24,
+    "padded_cluster_ids": [
+      0,
+      1,
+      7
+    ],
+    "n_forced": 259,
+    "frac_forced": 0.259,
+    "n_outside_topm": 0,
+    "mean_sq_dist_assigned": 0.2448737223148346,
+    "mean_sq_dist_nearest": 0.23557055509090424,
+    "balance_penalty_ratio": 1.039492063090569,
+    "delta_sq_dist": {
+      "mean": 0.00930316722393036,
+      "median": 0.0,
+      "p95": 0.056792950630187924,
+      "max": 0.12074387073516846
+    },
+    "assigned_rank_histogram": {
+      "0": 741,
+      "1": 131,
+      "2": 37,
+      "3": 37,
+      "4": 43,
+      "5": 11
+    },
+    "total_assignment_cost": 244.8737223148346,
+    "retrievability_valid_up_to": 8,
+    "retrievability_at_nprobe": {
+      "1": 0.741,
+      "2": 0.872,
+      "4": 0.946,
+      "8": 1.0
+    },
+    "dual_lower_bound": 244.76852061003063,
+    "duality_gap_pct": 0.04298007952238651,
+    "per_cluster_mean_sq_dist": {
+      "min": 0.20256877158369338,
+      "p95": 0.2746949050580342,
+      "max": 0.27705795802767313
+    }
+  }
+}

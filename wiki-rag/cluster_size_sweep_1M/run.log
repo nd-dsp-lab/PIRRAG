@@ -1,0 +1,239 @@
+Reading FAISS index from /Users/jiachenzhao/.cache/huggingface/hub/models--royrin--wiki-rag/snapshots/3199839664cfd6ef5c66c77e6a0d19201c61945b/faiss_index__top_1000000__2025-04-11/index.faiss...
+  ntotal=702,873 d=768
+Corpus: 702,873 vectors, dim 768
+
+  Query set: mode=holdout n_test=1000 db=701,873 metric=holdout_recall@10
+    exact ground truth for 1000 queries in 9.63s
+
+######################################################################
+# BASELINE  nlist=43867 nprobe=1070 (variable cluster sizes)
+######################################################################
+Using CPU (use --use-gpu for faster training on large datasets)
+
+======================================================================
+Training IVF-FLAT index
+  sizing: fixed-nlist  nlist=43,867
+======================================================================
+
+Training IVF-flat index...
+  Vectors: 701,873
+  Dimension: 768
+  Clusters (K): 43867
+  n_probe: 10
+  k-means iterations: 20
+  Using GPU: False
+
+Training k-means clustering...
+Training completed in 1018.15s
+
+Adding vectors to index...
+Added 701,873 vectors in 55.28s
+
+======================================================================
+Exporting Centroids and Lists
+======================================================================
+
+Exporting centroids and lists to cluster_size_sweep_1M/baseline...
+  Extracting 43867 centroids...
+  Extracted 43867 centroids of dimension 768
+  Saved centroids to cluster_size_sweep_1M/baseline/centroids.npy
+  Extracting inverted lists for 43867 clusters...
+  Extracted lists using direct invlists access
+  Saved inverted lists to cluster_size_sweep_1M/baseline/lists.json
+  Total vectors in lists: 701,873
+  Expected vectors: 701,873
+  Cluster size distribution: min=1 max=186 mean=16.00 median=12.0 empty=0
+  Saved holdout DB id mapping to cluster_size_sweep_1M/baseline/db_ids.npy
+  Saved metadata to cluster_size_sweep_1M/baseline/ivf_metadata.json
+
+======================================================================
+Summary
+======================================================================
+Index type: ivf-flat
+Sizing mode: fixed-nlist
+Clusters (nlist): 43,867
+Vectors: 701,873
+Dimension: 768
+Output: cluster_size_sweep_1M/baseline
+======================================================================
+    p=1070  holdout_recall@10=0.9855  latency=26.57 ms (numpy)
+
+  BASELINE holdout_recall@10 = 0.9855
+  candidates scanned: mean 26,046, min 21,168 / median 26,021 / max 31,241 (3.71% of DB, variable per query)
+  cluster sizes: min=1 max=186 mean=16.00
+  target recall for the constant-size runs: 0.9855
+
+######################################################################
+# CONSTANT SIZE  n=128
+######################################################################
+Using CPU (use --use-gpu for faster training on large datasets)
+
+======================================================================
+Training IVF-FLAT index
+  sizing: constant-size  nlist=5,484  cluster_size=128
+======================================================================
+
+Training IVF-flat index...
+  Vectors: 701,873
+  Dimension: 768
+  Clusters (K): 5484
+  n_probe: 10
+  k-means iterations: 20
+  Using GPU: False
+
+Training k-means clustering...
+Training completed in 135.12s
+
+Skipping index.add(): assignment is computed externally (constant-size mode)
+
+======================================================================
+Capacity-Constrained Assignment
+======================================================================
+
+  Assigning 701,873 vectors to 5,484 clusters of size 128
+    strategy=balanced top_m=32
+    candidate search: 6.42s
+    price balancing: overflow 147,591 -> 39,446 over 200 iterations
+    29,756 vectors had their whole top-m full; exact tail fill
+    WARNING: 29,756 vectors (4.2%) were placed outside their top-32 candidates. Consider raising --assign-topm; retrievability@p is only valid up to top_m.
+    assignment: 14.53s
+  Computing certified dual lower bound (one full pass over all centroids)...
+    dual bound 135361.9836 in 10.37s
+
+======================================================================
+Exporting Centroids and Lists
+======================================================================
+
+Exporting centroids and lists to cluster_size_sweep_1M/n128...
+  Extracting 5484 centroids...
+  Extracted 5484 centroids of dimension 768
+  Saved centroids to cluster_size_sweep_1M/n128/centroids.npy
+  Saved slot array (5484, 128) to cluster_size_sweep_1M/n128/cluster_slots.npy
+  Every cluster holds exactly 128 slots (701,873 real + 79 padded)
+  Saved padded lists.json to cluster_size_sweep_1M/n128/lists.json
+  Saved holdout DB id mapping to cluster_size_sweep_1M/n128/db_ids.npy
+  Saved metadata to cluster_size_sweep_1M/n128/ivf_metadata.json
+  Saved balance report to cluster_size_sweep_1M/n128/cluster_balance.txt
+
+======================================================================
+Summary
+======================================================================
+Index type: ivf-flat
+Sizing mode: constant-size
+Clusters (nlist): 5,484
+Cluster size (n): 128
+Padded slots: 79
+Balance penalty ratio: 1.052781
+Vectors: 701,873
+Dimension: 768
+Output: cluster_size_sweep_1M/n128
+======================================================================
+    searching for the smallest p reaching recall 0.9855
+      p=5484  recall=0.9994
+      p=2742  recall=0.9973
+      p=1371  recall=0.9949
+      p=686   recall=0.9891
+      p=343   recall=0.9774
+      p=515   recall=0.9858
+      p=429   recall=0.9824
+      p=472   recall=0.9838
+      p=494   recall=0.9854
+      p=505   recall=0.9858
+      p=500   recall=0.9855
+      p=497   recall=0.9855
+      p=496   recall=0.9855
+      p=495   recall=0.9852
+    n=128: p=496 -> 63,488 candidates (9.05% of DB), recall 0.9855
+
+######################################################################
+# CONSTANT SIZE  n=256
+######################################################################
+Using CPU (use --use-gpu for faster training on large datasets)
+
+======================================================================
+Training IVF-FLAT index
+  sizing: constant-size  nlist=2,742  cluster_size=256
+======================================================================
+
+Training IVF-flat index...
+  Vectors: 701,873
+  Dimension: 768
+  Clusters (K): 2742
+  n_probe: 10
+  k-means iterations: 20
+  Using GPU: False
+
+Training k-means clustering...
+Training completed in 68.80s
+
+Skipping index.add(): assignment is computed externally (constant-size mode)
+
+======================================================================
+Capacity-Constrained Assignment
+======================================================================
+
+  Assigning 701,873 vectors to 2,742 clusters of size 256
+    strategy=balanced top_m=32
+    candidate search: 3.99s
+    price balancing: overflow 117,827 -> 31,077 over 200 iterations
+    19,877 vectors had their whole top-m full; exact tail fill
+    WARNING: 19,877 vectors (2.8%) were placed outside their top-32 candidates. Consider raising --assign-topm; retrievability@p is only valid up to top_m.
+    assignment: 11.05s
+  Computing certified dual lower bound (one full pass over all centroids)...
+    dual bound 139043.0048 in 4.83s
+
+======================================================================
+Exporting Centroids and Lists
+======================================================================
+
+Exporting centroids and lists to cluster_size_sweep_1M/n256...
+  Extracting 2742 centroids...
+  Extracted 2742 centroids of dimension 768
+  Saved centroids to cluster_size_sweep_1M/n256/centroids.npy
+  Saved slot array (2742, 256) to cluster_size_sweep_1M/n256/cluster_slots.npy
+  Every cluster holds exactly 256 slots (701,873 real + 79 padded)
+  Saved padded lists.json to cluster_size_sweep_1M/n256/lists.json
+  Saved holdout DB id mapping to cluster_size_sweep_1M/n256/db_ids.npy
+  Saved metadata to cluster_size_sweep_1M/n256/ivf_metadata.json
+  Saved balance report to cluster_size_sweep_1M/n256/cluster_balance.txt
+
+======================================================================
+Summary
+======================================================================
+Index type: ivf-flat
+Sizing mode: constant-size
+Clusters (nlist): 2,742
+Cluster size (n): 256
+Padded slots: 79
+Balance penalty ratio: 1.037061
+Vectors: 701,873
+Dimension: 768
+Output: cluster_size_sweep_1M/n256
+======================================================================
+    searching for the smallest p reaching recall 0.9855
+      p=2742  recall=0.9992
+      p=1371  recall=0.9986
+      p=686   recall=0.9959
+      p=343   recall=0.9904
+      p=172   recall=0.9784
+      p=258   recall=0.9873
+      p=215   recall=0.9839
+      p=237   recall=0.9859
+      p=226   recall=0.9850
+      p=232   recall=0.9856
+      p=229   recall=0.9851
+      p=231   recall=0.9854
+    n=256: p=232 -> 59,392 candidates (8.46% of DB), recall 0.9856
+
+======================================================================
+SWEEP RESULT
+======================================================================
+Baseline: nlist=43867 p=1070 -> 26,046 candidates, holdout_recall@10=0.9855
+                  x     p  centroid     cand    TOTAL  vs base  penalty
+  baseline    43867  1070    43,867   26,046   69,913    1.00x   1.0000
+  n=128        5484   496     5,484   63,488   68,972    0.99x   1.0528
+  n=256        2742   232     2,742   59,392   62,134    0.89x   1.0371
+
+Best by total distance evaluations: n=256 at p=232 -- 62,134 vs 69,913 baseline (0.89x), with a static 256-slot circuit shape.
+  Its candidate stage alone is 2.28x baseline; the centroid stage is 16.0x cheaper, which is what pays for it.
+Artifacts in cluster_size_sweep_1M

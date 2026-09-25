@@ -48,10 +48,10 @@ CHECKS
   [PASS] baseline_sizes_are_unequal
   [PASS] n16_needs_far_more_probes_than_n128
 
-NOTE: the balanced assignment is not bit-reproducible across runs, so the
-smallest p that reaches the target moves by about one probe at n=128
-(this run: 42; canonical sweep: 43). p=43 is reported because it
-clears the target in every run observed.
+NOTE: the balanced assignment reproduces exactly within one environment but
+differs slightly across faiss/BLAS builds, so the smallest p reaching the
+target can move by about one probe at n=128 (this run: 42; the
+canonical sweep: 43). p=43 is reported because it clears the target everywhere.
 
 CROSS-CHECK against cluster_size_sweep/cluster_size_sweep.json
   baseline p=100 : sweep 0.9519  now 0.9519  diff 0.0000
@@ -59,4 +59,4 @@ CROSS-CHECK against cluster_size_sweep/cluster_size_sweep.json
 
 RESULT: top-100 of 4096 variable clusters and top-43 of 500 equal-size clusters reach the same recall@10 (0.9519 vs 0.9534) on identical queries. Total distance evaluations 6,406 vs 6,004 (0.94x); centroid stage 8.2x cheaper, candidate stage 2.38x more expensive but fixed at 5,504 per query.
 
-Elapsed 114s. Artifacts in verify_p43/
+Elapsed 123s. Artifacts in verify_p43/

@@ -141,3 +141,32 @@ fixed-width chunks fetches 3,168 records/query instead of 5,504 (−42%) at the 
 recall, at the cost of 1,249 vs 500 centroid comparisons. Same `pir_export.py`,
 same manifest format (with an `offsets` table). Raise it before building if 5,504
 rows/query is a problem for your PIR scheme.
+
+## 9. Other database sizes — bundles
+
+Same five files per size (`centroids.npy`, `cluster_slots.npy`, `lists.json`,
+`ivf_metadata.json`, `cluster_balance.txt`), same addressing rule
+`row = cluster_id * n + index`, same protocol for choosing p (smallest p whose
+held-out recall@10 matches a k-means baseline with K = N/16, p = K/41 at that size).
+The cluster width n is the one with the lowest total cost at each size.
+
+| database | vectors | n | K | **p** | records/query (= p·n) | bundle directory |
+|---|---|---|---|---|---|---|
+| 1k | 1,000 (rows 0–999 of the 65k index) | 32 | 32 | **2** | 64 | `wiki-rag/cluster_size_sweep_small/N1000/n32/` |
+| 5k | 5,000 (rows 0–4,999) | 64 | 79 | **6** | 384 | `wiki-rag/cluster_size_sweep_small/N5000/n64/` |
+| 65k | 65,000 (`wiki_index__top_100000`) | 128 | 508 | **43** | 5,504 | `wiki-rag/ivf_output_n128/` |
+| 1M | 702,873 (`faiss_index__top_1000000`) | 256 | 2,746 | **232** | 59,392 | `wiki-rag/ivf_output_1M_n256/` |
+| 10M | 1,120,486 (`faiss_index__top_10000000`) | 256 | 4,377 | **546** | 139,776 | `wiki-rag/ivf_output_10M_n256/` |
+
+Each directory also contains its zip (`cluster_<size>_n<n>.zip`). Vector ids are
+row indices of the named FAISS index (`id_space: database`). The 1k and 5k sets are
+prefix truncations exactly as `prototype/truncate_databases.py` produces them.
+
+Measurements behind the choice of n and p: `wiki-rag/cluster_size_sweep_small/sweep_small.md`,
+`wiki-rag/cluster_size_sweep_1M/recall_analysis_constant_size.txt`,
+`wiki-rag/cluster_size_sweep_10M/recall_analysis_constant_size.txt`. Note the "1M"
+and "10M" names are the HF index names (top-1M / top-10M *articles*); the vector
+counts above are the real database sizes.
+
+FHE centroid files for each size are in `openfhe_core/openfhe_inputs_<size>_n<n>/`
+(regenerable with `fhe_prepare.py --ivf-dir <bundle dir>`).
