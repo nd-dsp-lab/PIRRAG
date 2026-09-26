@@ -1,0 +1,301 @@
+Reading FAISS index from /Users/jiachenzhao/.cache/huggingface/hub/models--royrin--wiki-rag/snapshots/3199839664cfd6ef5c66c77e6a0d19201c61945b/wiki_index__top_100000__2025-04-11/index.faiss...
+  ntotal=65,000 d=768
+
+  Query set: mode=holdout n_test=1000 db=64,000 metric=holdout_recall@10
+    exact ground truth for 1000 queries in 0.53s
+
+######################################################################
+# BASELINE  K=4096, variable sizes
+######################################################################
+Using CPU (use --use-gpu for faster training on large datasets)
+
+======================================================================
+Training IVF-FLAT index
+  sizing: fixed-nlist  nlist=4,096
+======================================================================
+
+Training IVF-flat index...
+  Vectors: 64,000
+  Dimension: 768
+  Clusters (K): 4096
+  n_probe: 10
+  k-means iterations: 20
+  Using GPU: False
+
+Training k-means clustering...
+Training completed in 7.28s
+
+Adding vectors to index...
+Added 64,000 vectors in 0.41s
+
+======================================================================
+Exporting Centroids and Lists
+======================================================================
+
+Exporting centroids and lists to verify_p43/baseline...
+  Extracting 4096 centroids...
+  Extracted 4096 centroids of dimension 768
+  Saved centroids to verify_p43/baseline/centroids.npy
+  Extracting inverted lists for 4096 clusters...
+  Extracted lists using direct invlists access
+  Saved inverted lists to verify_p43/baseline/lists.json
+  Total vectors in lists: 64,000
+  Expected vectors: 64,000
+  Cluster size distribution: min=1 max=102 mean=15.62 median=12.0 empty=0
+  Saved holdout DB id mapping to verify_p43/baseline/db_ids.npy
+  Saved metadata to verify_p43/baseline/ivf_metadata.json
+
+======================================================================
+Summary
+======================================================================
+Index type: ivf-flat
+Sizing mode: fixed-nlist
+Clusters (nlist): 4,096
+Vectors: 64,000
+Dimension: 768
+Output: verify_p43/baseline
+======================================================================
+    p=25    holdout_recall@10=0.8526  latency=0.53 ms (numpy)
+    p=50    holdout_recall@10=0.9121  latency=0.87 ms (numpy)
+    p=75    holdout_recall@10=0.9366  latency=1.20 ms (numpy)
+    p=100   holdout_recall@10=0.9519  latency=1.46 ms (numpy)
+    p=125   holdout_recall@10=0.9641  latency=1.78 ms (numpy)
+    p=150   holdout_recall@10=0.9697  latency=2.11 ms (numpy)
+    p=200   holdout_recall@10=0.9784  latency=2.81 ms (numpy)
+
+######################################################################
+# EQUAL-SIZE  n=128 -> K=ceil(N/128)
+######################################################################
+Using CPU (use --use-gpu for faster training on large datasets)
+
+======================================================================
+Training IVF-FLAT index
+  sizing: constant-size  nlist=500  cluster_size=128
+======================================================================
+
+Training IVF-flat index...
+  Vectors: 64,000
+  Dimension: 768
+  Clusters (K): 500
+  n_probe: 10
+  k-means iterations: 20
+  Using GPU: False
+
+Training k-means clustering...
+Training completed in 1.02s
+
+Skipping index.add(): assignment is computed externally (constant-size mode)
+
+======================================================================
+Capacity-Constrained Assignment
+======================================================================
+
+  Assigning 64,000 vectors to 500 clusters of size 128
+    strategy=balanced top_m=32
+    candidate search: 0.09s
+    price balancing: overflow 12,242 -> 3,167 over 200 iterations
+    2,261 vectors had their whole top-m full; exact tail fill
+    WARNING: 2,261 vectors (3.5%) were placed outside their top-32 candidates. Consider raising --assign-topm; retrievability@p is only valid up to top_m.
+    assignment: 0.88s
+  Computing certified dual lower bound (one full pass over all centroids)...
+    dual bound 12878.1070 in 0.08s
+
+======================================================================
+Exporting Centroids and Lists
+======================================================================
+
+Exporting centroids and lists to verify_p43/n128...
+  Extracting 500 centroids...
+  Extracted 500 centroids of dimension 768
+  Saved centroids to verify_p43/n128/centroids.npy
+  Saved slot array (500, 128) to verify_p43/n128/cluster_slots.npy
+  Every cluster holds exactly 128 slots (64,000 real + 0 padded)
+  Saved padded lists.json to verify_p43/n128/lists.json
+  Saved holdout DB id mapping to verify_p43/n128/db_ids.npy
+  Saved metadata to verify_p43/n128/ivf_metadata.json
+  Saved balance report to verify_p43/n128/cluster_balance.txt
+
+======================================================================
+Summary
+======================================================================
+Index type: ivf-flat
+Sizing mode: constant-size
+Clusters (nlist): 500
+Cluster size (n): 128
+Padded slots: 0
+Balance penalty ratio: 1.054413
+Vectors: 64,000
+Dimension: 768
+Output: verify_p43/n128
+======================================================================
+    p=16    holdout_recall@10=0.8818  latency=1.08 ms (numpy)
+    p=24    holdout_recall@10=0.9165  latency=1.58 ms (numpy)
+    p=32    holdout_recall@10=0.9365  latency=2.09 ms (numpy)
+    p=40    holdout_recall@10=0.9492  latency=2.71 ms (numpy)
+    p=41    holdout_recall@10=0.9505  latency=2.68 ms (numpy)
+    p=42    holdout_recall@10=0.9520  latency=2.79 ms (numpy)
+    p=43    holdout_recall@10=0.9534  latency=2.83 ms (numpy)
+    p=44    holdout_recall@10=0.9545  latency=3.05 ms (numpy)
+    p=45    holdout_recall@10=0.9558  latency=3.05 ms (numpy)
+    p=48    holdout_recall@10=0.9586  latency=3.24 ms (numpy)
+    p=64    holdout_recall@10=0.9693  latency=4.56 ms (numpy)
+    p=96    holdout_recall@10=0.9797  latency=6.81 ms (numpy)
+    p=128   holdout_recall@10=0.9847  latency=9.48 ms (numpy)
+
+######################################################################
+# CONTROL  n=16 -> K=ceil(N/16) (equal-size at ~4096 clusters)
+######################################################################
+Using CPU (use --use-gpu for faster training on large datasets)
+
+======================================================================
+Training IVF-FLAT index
+  sizing: constant-size  nlist=4,000  cluster_size=16
+======================================================================
+
+Training IVF-flat index...
+  Vectors: 64,000
+  Dimension: 768
+  Clusters (K): 4000
+  n_probe: 10
+  k-means iterations: 20
+  Using GPU: False
+
+Training k-means clustering...
+Training completed in 7.91s
+
+Skipping index.add(): assignment is computed externally (constant-size mode)
+
+======================================================================
+Capacity-Constrained Assignment
+======================================================================
+
+  Assigning 64,000 vectors to 4,000 clusters of size 16
+    strategy=balanced top_m=32
+    candidate search: 0.39s
+    price balancing: overflow 19,541 -> 5,605 over 200 iterations
+    5,456 vectors had their whole top-m full; exact tail fill
+    WARNING: 5,456 vectors (8.5%) were placed outside their top-32 candidates. Consider raising --assign-topm; retrievability@p is only valid up to top_m.
+    assignment: 1.95s
+  Computing certified dual lower bound (one full pass over all centroids)...
+    dual bound 11598.0129 in 0.93s
+
+======================================================================
+Exporting Centroids and Lists
+======================================================================
+
+Exporting centroids and lists to verify_p43/n16...
+  Extracting 4000 centroids...
+  Extracted 4000 centroids of dimension 768
+  Saved centroids to verify_p43/n16/centroids.npy
+  Saved slot array (4000, 16) to verify_p43/n16/cluster_slots.npy
+  Every cluster holds exactly 16 slots (64,000 real + 0 padded)
+  Saved padded lists.json to verify_p43/n16/lists.json
+  Saved holdout DB id mapping to verify_p43/n16/db_ids.npy
+  Saved metadata to verify_p43/n16/ivf_metadata.json
+  Saved balance report to verify_p43/n16/cluster_balance.txt
+
+======================================================================
+Summary
+======================================================================
+Index type: ivf-flat
+Sizing mode: constant-size
+Clusters (nlist): 4,000
+Cluster size (n): 16
+Padded slots: 0
+Balance penalty ratio: 1.151084
+Vectors: 64,000
+Dimension: 768
+Output: verify_p43/n16
+======================================================================
+    p=100   holdout_recall@10=0.8718  latency=1.71 ms (numpy)
+    p=200   holdout_recall@10=0.9213  latency=2.12 ms (numpy)
+    p=300   holdout_recall@10=0.9413  latency=2.84 ms (numpy)
+    p=400   holdout_recall@10=0.9535  latency=4.09 ms (numpy)
+    p=418   holdout_recall@10=0.9550  latency=4.25 ms (numpy)
+    p=419   holdout_recall@10=0.9551  latency=4.00 ms (numpy)
+    p=420   holdout_recall@10=0.9551  latency=4.90 ms (numpy)
+    p=450   holdout_recall@10=0.9578  latency=5.00 ms (numpy)
+    p=500   holdout_recall@10=0.9612  latency=5.62 ms (numpy)
+
+Database 64,000 vectors (dim 768), 1000 held-out queries, seed 1234, exact rerank, metric holdout_recall@10
+
+Baseline cluster sizes: min 1 / mean 15.62 / max 102   (spread 102x)
+Baseline candidates at p=100 per query: min 1,574 / median 2,278 / max 3,259  (varies per query -> occupancy leak)
+Equal-size n=128: K=500, distinct cluster sizes = [128], candidates at p are exactly p*128 for every query
+
+TARGET: baseline recall@10 at p=100 = 0.9519
+
+config                     K     p   rec@10  centroid     cands     total  vs base
+----------------------------------------------------------------------------------
+k-means K=4096          4096    25   0.8526     4,096       629     4,725    0.74x  
+k-means K=4096          4096    50   0.9121     4,096     1,202     5,298    0.83x  
+k-means K=4096          4096    75   0.9366     4,096     1,761     5,857    0.91x  
+k-means K=4096          4096   100   0.9519     4,096     2,310     6,406    1.00x  <- baseline
+k-means K=4096          4096   125   0.9641     4,096     2,852     6,948    1.08x  
+k-means K=4096          4096   150   0.9697     4,096     3,387     7,483    1.17x  
+k-means K=4096          4096   200   0.9784     4,096     4,468     8,564    1.34x  
+
+equal-size n=128         500    16   0.8818       500     2,048     2,548    0.40x  
+equal-size n=128         500    24   0.9165       500     3,072     3,572    0.56x  
+equal-size n=128         500    32   0.9365       500     4,096     4,596    0.72x  
+equal-size n=128         500    40   0.9492       500     5,120     5,620    0.88x  
+equal-size n=128         500    41   0.9505       500     5,248     5,748    0.90x  
+equal-size n=128         500    42   0.9520       500     5,376     5,876    0.92x  <- smallest p on this grid reaching the target (this run)
+equal-size n=128         500    43   0.9534       500     5,504     6,004    0.94x  <- reported operating point
+equal-size n=128         500    44   0.9545       500     5,632     6,132    0.96x  
+equal-size n=128         500    45   0.9558       500     5,760     6,260    0.98x  
+equal-size n=128         500    48   0.9586       500     6,144     6,644    1.04x  
+equal-size n=128         500    64   0.9693       500     8,192     8,692    1.36x  
+equal-size n=128         500    96   0.9797       500    12,288    12,788    2.00x  
+equal-size n=128         500   128   0.9847       500    16,384    16,884    2.64x  
+
+equal-size n=16         4000   100   0.8718     4,000     1,600     5,600    0.87x  
+equal-size n=16         4000   200   0.9213     4,000     3,200     7,200    1.12x  
+equal-size n=16         4000   300   0.9413     4,000     4,800     8,800    1.37x  
+equal-size n=16         4000   400   0.9535     4,000     6,400    10,400    1.62x  <- smallest p on this grid reaching the target
+equal-size n=16         4000   418   0.9550     4,000     6,688    10,688    1.67x  
+equal-size n=16         4000   419   0.9551     4,000     6,704    10,704    1.67x  
+equal-size n=16         4000   420   0.9551     4,000     6,720    10,720    1.67x  
+equal-size n=16         4000   450   0.9578     4,000     7,200    11,200    1.75x  
+equal-size n=16         4000   500   0.9612     4,000     8,000    12,000    1.87x  
+
+CHECKS
+  [PASS] n128_p43_reaches_baseline
+  [PASS] n128_all_clusters_exactly_128
+  [PASS] n128_K_is_ceil_N_over_128
+  [PASS] n128_p43_cheaper_in_total_than_baseline
+  [PASS] baseline_sizes_are_unequal
+  [PASS] n16_needs_far_more_probes_than_n128
+
+NOTE: the balanced assignment is not bit-reproducible across runs, so the
+smallest p that reaches the target moves by about one probe at n=128
+(this run: 42; canonical sweep: 43). p=43 is reported because it
+clears the target in every run observed.
+
+CROSS-CHECK against cluster_size_sweep/cluster_size_sweep.json
+  baseline p=100 : sweep 0.9519  now 0.9519  diff 0.0000
+  n=128 min p    : sweep 43 (recall 0.9529)  now p=43 recall 0.9534
+
+RESULT: top-100 of 4096 variable clusters and top-43 of 500 equal-size clusters reach the same recall@10 (0.9519 vs 0.9534) on identical queries. Total distance evaluations 6,406 vs 6,004 (0.94x); centroid stage 8.2x cheaper, candidate stage 2.38x more expensive but fixed at 5,504 per query.
+
+Elapsed 114s. Artifacts in verify_p43/
+Traceback (most recent call last):
+  File "/Users/jiachenzhao/research/ragpiano-cluster/wiki-rag/verify_p43.py", line 224, in <module>
+    main()
+  File "/Users/jiachenzhao/research/ragpiano-cluster/wiki-rag/verify_p43.py", line 205, in main
+    (work / "verify_p43.json").write_text(json.dumps({
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/json/encoder.py", line 201, in encode
+    chunks = list(chunks)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/json/encoder.py", line 431, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/json/encoder.py", line 405, in _iterencode_dict
+    yield from chunks
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/json/encoder.py", line 405, in _iterencode_dict
+    yield from chunks
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/json/encoder.py", line 438, in _iterencode
+    o = _default(o)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type bool is not JSON serializable

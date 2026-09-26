@@ -1,0 +1,3278 @@
+{
+ "fever": {
+  "dataset": "fever",
+  "rule": "evidence entity in doc",
+  "n_queries": 100,
+  "n_scored": 75,
+  "retrieved_per_query_mean": 10,
+  "queries_with_10_docs": 100,
+  "hit_at": {
+   "1": 0.6133333333333333,
+   "3": 0.6933333333333334,
+   "5": 0.72,
+   "10": 0.7333333333333333
+  },
+  "hit_any": 0.7333333333333333,
+  "mrr": 0.6587777777777778,
+  "query_wall_s_mean": NaN,
+  "per_query": [
+   {
+    "query_id": 0,
+    "n_retrieved": 10,
+    "first_hit_rank": 2,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 1,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 2,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 3,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 4,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": false,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 5,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 6,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": false,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 7,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": false,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 8,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 9,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 10,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 11,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 12,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 13,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 14,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 15,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 16,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 17,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 18,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 19,
+    "n_retrieved": 10,
+    "first_hit_rank": 4,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 20,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 21,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": false,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 22,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 23,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": false,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 24,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": false,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 25,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 26,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 27,
+    "n_retrieved": 10,
+    "first_hit_rank": 2,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 28,
+    "n_retrieved": 10,
+    "first_hit_rank": 2,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 29,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 30,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": false,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 31,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 32,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": false,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 33,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": false,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 34,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 35,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 36,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": false,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 37,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": false,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 38,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 39,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 40,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 41,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 42,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 43,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 44,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": false,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 45,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 46,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 47,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 48,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 49,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 50,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 51,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 52,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 53,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 54,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 55,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 56,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": false,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 57,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": false,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 58,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 59,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": false,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 60,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": false,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 61,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 62,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 63,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": false,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 64,
+    "n_retrieved": 10,
+    "first_hit_rank": 3,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 65,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 66,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": false,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 67,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 68,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": false,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 69,
+    "n_retrieved": 10,
+    "first_hit_rank": 5,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 70,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 71,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 72,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 73,
+    "n_retrieved": 10,
+    "first_hit_rank": 2,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 74,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 75,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 76,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": false,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 77,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 78,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 79,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 80,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 81,
+    "n_retrieved": 10,
+    "first_hit_rank": 2,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 82,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 83,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 84,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 85,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 86,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 87,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 88,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": false,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 89,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 90,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": false,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 91,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 92,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 93,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 94,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 95,
+    "n_retrieved": 10,
+    "first_hit_rank": 8,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 96,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": false,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 97,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 98,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": false,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 99,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": false,
+    "selected_cluster": null,
+    "query_wall_s": null
+   }
+  ]
+ },
+ "hotpot": {
+  "dataset": "hotpot",
+  "rule": "answer string in doc",
+  "n_queries": 100,
+  "n_scored": 100,
+  "retrieved_per_query_mean": 10,
+  "queries_with_10_docs": 100,
+  "hit_at": {
+   "1": 0.39,
+   "3": 0.53,
+   "5": 0.59,
+   "10": 0.65
+  },
+  "hit_any": 0.65,
+  "mrr": 0.4760634920634921,
+  "query_wall_s_mean": NaN,
+  "per_query": [
+   {
+    "query_id": 0,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 1,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 2,
+    "n_retrieved": 10,
+    "first_hit_rank": 2,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 3,
+    "n_retrieved": 10,
+    "first_hit_rank": 2,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 4,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 5,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 6,
+    "n_retrieved": 10,
+    "first_hit_rank": 2,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 7,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 8,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 9,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 10,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 11,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 12,
+    "n_retrieved": 10,
+    "first_hit_rank": 5,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 13,
+    "n_retrieved": 10,
+    "first_hit_rank": 2,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 14,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 15,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 16,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 17,
+    "n_retrieved": 10,
+    "first_hit_rank": 4,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 18,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 19,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 20,
+    "n_retrieved": 10,
+    "first_hit_rank": 7,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 21,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 22,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 23,
+    "n_retrieved": 10,
+    "first_hit_rank": 3,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 24,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 25,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 26,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 27,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 28,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 29,
+    "n_retrieved": 10,
+    "first_hit_rank": 2,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 30,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 31,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 32,
+    "n_retrieved": 10,
+    "first_hit_rank": 7,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 33,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 34,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 35,
+    "n_retrieved": 10,
+    "first_hit_rank": 3,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 36,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 37,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 38,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 39,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 40,
+    "n_retrieved": 10,
+    "first_hit_rank": 3,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 41,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 42,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 43,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 44,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 45,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 46,
+    "n_retrieved": 10,
+    "first_hit_rank": 4,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 47,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 48,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 49,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 50,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 51,
+    "n_retrieved": 10,
+    "first_hit_rank": 4,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 52,
+    "n_retrieved": 10,
+    "first_hit_rank": 9,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 53,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 54,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 55,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 56,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 57,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 58,
+    "n_retrieved": 10,
+    "first_hit_rank": 2,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 59,
+    "n_retrieved": 10,
+    "first_hit_rank": 2,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 60,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 61,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 62,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 63,
+    "n_retrieved": 10,
+    "first_hit_rank": 6,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 64,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 65,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 66,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 67,
+    "n_retrieved": 10,
+    "first_hit_rank": 3,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 68,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 69,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 70,
+    "n_retrieved": 10,
+    "first_hit_rank": 4,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 71,
+    "n_retrieved": 10,
+    "first_hit_rank": 7,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 72,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 73,
+    "n_retrieved": 10,
+    "first_hit_rank": 2,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 74,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 75,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 76,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 77,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 78,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 79,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 80,
+    "n_retrieved": 10,
+    "first_hit_rank": 6,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 81,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 82,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 83,
+    "n_retrieved": 10,
+    "first_hit_rank": 2,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 84,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 85,
+    "n_retrieved": 10,
+    "first_hit_rank": 2,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 86,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 87,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 88,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 89,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 90,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 91,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 92,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 93,
+    "n_retrieved": 10,
+    "first_hit_rank": 5,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 94,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 95,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 96,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 97,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 98,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 99,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   }
+  ]
+ },
+ "nq": {
+  "dataset": "nq",
+  "rule": "long-answer sentence in doc",
+  "n_queries": 100,
+  "n_scored": 100,
+  "retrieved_per_query_mean": 10,
+  "queries_with_10_docs": 100,
+  "hit_at": {
+   "1": 0.14,
+   "3": 0.16,
+   "5": 0.17,
+   "10": 0.17
+  },
+  "hit_any": 0.17,
+  "mrr": 0.152,
+  "query_wall_s_mean": NaN,
+  "per_query": [
+   {
+    "query_id": 0,
+    "n_retrieved": 10,
+    "first_hit_rank": 5,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 1,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 2,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 3,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 4,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 5,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 6,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 7,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 8,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 9,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 10,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 11,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 12,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 13,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 14,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 15,
+    "n_retrieved": 10,
+    "first_hit_rank": 2,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 16,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 17,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 18,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 19,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 20,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 21,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 22,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 23,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 24,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 25,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 26,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 27,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 28,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 29,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 30,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 31,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 32,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 33,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 34,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 35,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 36,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 37,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 38,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 39,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 40,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 41,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 42,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 43,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 44,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 45,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 46,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 47,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 48,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 49,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 50,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 51,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 52,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 53,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 54,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 55,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 56,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 57,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 58,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 59,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 60,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 61,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 62,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 63,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 64,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 65,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 66,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 67,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 68,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 69,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 70,
+    "n_retrieved": 10,
+    "first_hit_rank": 2,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 71,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 72,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 73,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 74,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 75,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 76,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 77,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 78,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 79,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 80,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 81,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 82,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 83,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 84,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 85,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 86,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 87,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 88,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 89,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 90,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 91,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 92,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 93,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 94,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 95,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 96,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 97,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 98,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 99,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   }
+  ]
+ },
+ "nq_title": {
+  "dataset": "nq_title",
+  "rule": "answer-page title among retrieved titles",
+  "n_queries": 100,
+  "n_scored": 100,
+  "retrieved_per_query_mean": 10,
+  "queries_with_10_docs": 100,
+  "hit_at": {
+   "1": 0.4,
+   "3": 0.48,
+   "5": 0.49,
+   "10": 0.5
+  },
+  "hit_any": 0.5,
+  "mrr": 0.43977777777777777,
+  "query_wall_s_mean": NaN,
+  "per_query": [
+   {
+    "query_id": 0,
+    "n_retrieved": 10,
+    "first_hit_rank": 5,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 1,
+    "n_retrieved": 10,
+    "first_hit_rank": 2,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 2,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 3,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 4,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 5,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 6,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 7,
+    "n_retrieved": 10,
+    "first_hit_rank": 2,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 8,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 9,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 10,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 11,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 12,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 13,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 14,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 15,
+    "n_retrieved": 10,
+    "first_hit_rank": 2,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 16,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 17,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 18,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 19,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 20,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 21,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 22,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 23,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 24,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 25,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 26,
+    "n_retrieved": 10,
+    "first_hit_rank": 9,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 27,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 28,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 29,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 30,
+    "n_retrieved": 10,
+    "first_hit_rank": 3,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 31,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 32,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 33,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 34,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 35,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 36,
+    "n_retrieved": 10,
+    "first_hit_rank": 2,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 37,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 38,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 39,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 40,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 41,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 42,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 43,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 44,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 45,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 46,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 47,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 48,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 49,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 50,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 51,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 52,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 53,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 54,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 55,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 56,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 57,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 58,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 59,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 60,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 61,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 62,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 63,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 64,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 65,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 66,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 67,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 68,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 69,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 70,
+    "n_retrieved": 10,
+    "first_hit_rank": 2,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 71,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 72,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 73,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 74,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 75,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 76,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 77,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 78,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 79,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 80,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 81,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 82,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 83,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 84,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 85,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 86,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 87,
+    "n_retrieved": 10,
+    "first_hit_rank": 2,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 88,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 89,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 90,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 91,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 92,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 93,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 94,
+    "n_retrieved": 10,
+    "first_hit_rank": 3,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 95,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 96,
+    "n_retrieved": 10,
+    "first_hit_rank": null,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 97,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 98,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   },
+   {
+    "query_id": 99,
+    "n_retrieved": 10,
+    "first_hit_rank": 1,
+    "has_targets": true,
+    "selected_cluster": null,
+    "query_wall_s": null
+   }
+  ]
+ }
+}

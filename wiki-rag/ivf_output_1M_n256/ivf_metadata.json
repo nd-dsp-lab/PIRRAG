@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "sizing_mode": "constant-size",
+  "n_vectors": 702873,
+  "dim": 768,
+  "nlist": 2746,
+  "cluster_size": 256,
+  "total_slots": 702976,
+  "n_padded_slots": 103,
+  "padding_sentinel": -1,
+  "id_mapping": "global_vector_id = slots[cid][idx]; slot_address = cid * cluster_size + idx",
+  "id_space": "database",
+  "assignment": "balanced",
+  "assignment_params": {
+    "top_m": 32,
+    "price_iters": 200,
+    "strategy": "balanced",
+    "price_iters_run": 200,
+    "overflow_after_prices": 31445,
+    "n_evicted": 31445,
+    "n_outside_topm": 21458,
+    "lambda_max": 0.10710765473596831,
+    "lambda_nonzero_frac": 0.8725418790968682,
+    "candidate_search_seconds": 8.493,
+    "assignment_seconds": 23.58
+  },
+  "index_type": "ivf-flat",
+  "centroid_space": "raw",
+  "nprobe": 10,
+  "recall_k": 10,
+  "pq": null,
+  "kmeans": {
+    "niter": 20,
+    "seed": 1234,
+    "min_points_per_centroid": 1,
+    "max_points_per_centroid": 256
+  },
+  "recall_mode": "perturbed",
+  "recall_metric_name": "perturbed_recall@10",
+  "recall_by_nprobe": {
+    "232": {
+      "recall": 0.9584,
+      "latency_ms_mean": 90.38836553300101,
+      "latency_ms_p95": 141.36737560002342,
+      "returned_mean": 10
+    }
+  },
+  "artifacts": {
+    "centroids": "centroids.npy",
+    "slots": "cluster_slots.npy",
+    "lists": "lists.json"
+  },
+  "diagnostics": {
+    "distance_units": "squared_l2",
+    "size_histogram": {
+      "211": 1,
+      "213": 1,
+      "241": 1,
+      "256": 2743
+    },
+    "n_padded_slots": 103,
+    "padded_cluster_ids": [
+      780,
+      1574,
+      1793
+    ],
+    "n_forced": 159191,
+    "frac_forced": 0.22648615041408618,
+    "n_outside_topm": 21458,
+    "mean_sq_dist_assigned": 0.20103177076429798,
+    "mean_sq_dist_nearest": 0.1939379217949715,
+    "balance_penalty_ratio": 1.036577936401866,
+    "delta_sq_dist": {
+      "mean": 0.007093848969326469,
+      "median": 0.0,
+      "p95": 0.03837009072303775,
+      "max": 0.3621348738670349
+    },
+    "assigned_rank_histogram": {
+      "0": 543682,
+      "1": 72710,
+      "2": 24487,
+      "3": 11479,
+      "4": 6322,
+      "5": 4118,
+      "6": 2848,
+      "7": 2130,
+      "8": 1669,
+      "9": 1404,
+      "10": 1103,
+      "11": 983,
+      "12": 836,
+      "13": 724,
+      "14": 650,
+      "15": 539,
+      "16": 521,
+      "17": 480,
+      "18": 454,
+      "19": 428,
+      "20": 409,
+      "21": 368,
+      "22": 361,
+      "23": 320,
+      "24": 354,
+      "25": 339,
+      "26": 314,
+      "27": 268,
+      "28": 260,
+      "29": 290,
+      "30": 298,
+      "31": 267,
+      "32": 21458
+    },
+    "total_assignment_cost": 141299.8038124144,
+    "retrievability_valid_up_to": 32,
+    "retrievability_at_nprobe": {
+      "1": 0.7735138495859138,
+      "2": 0.8769607027158534,
+      "4": 0.9281306864824798,
+      "8": 0.9500663704538373,
+      "16": 0.9613173361332702,
+      "25": 0.9665743313514675,
+      "32": 0.9694710139669613
+    },
+    "dual_lower_bound": 139150.63634836307,
+    "duality_gap_pct": 1.544489856784345,
+    "per_cluster_mean_sq_dist": {
+      "min": 0.10742049291729927,
+      "p95": 0.2528696795925498,
+      "max": 0.4784324577776715
+    }
+  }
+}

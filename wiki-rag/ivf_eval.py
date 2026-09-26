@@ -279,6 +279,44 @@ def recall_at_k(retrieved: np.ndarray, ground_truth: np.ndarray) -> float:
     return correct / total if total else 0.0
 
 
+def candidates_per_query(
+    queries: np.ndarray,
+    centroids: np.ndarray,
+    cluster_sizes: np.ndarray,
+    nprobe: int,
+    transform: Optional[np.ndarray] = None,
+) -> np.ndarray:
+    """
+    Exact number of records each query fetches when probing its top-``nprobe`` clusters.
+
+    Do not approximate this as ``nprobe * mean(cluster_sizes)``: the clusters
+    nearest a query are systematically larger than average, because k-means gives
+    dense regions big clusters and queries land in dense regions. On the 64k
+    database at p=100 the mean is ~2,310 against a naive estimate of 1,562.
+
+    Args:
+        queries: (Q, dim) float32.
+        centroids: (nlist, dim) float32.
+        cluster_sizes: (nlist,) real member counts, padding excluded.
+        nprobe: Clusters probed per query.
+        transform: Optional OPQ rotation applied to queries.
+
+    Returns:
+        (Q,) int64 candidate counts.
+    """
+    nlist = len(centroids)
+    nprobe = int(min(nprobe, nlist))
+    q = queries if transform is None else queries @ transform.T
+    c_sq = np.einsum("ij,ij->i", centroids, centroids)
+    with np.errstate(over="ignore", invalid="ignore", divide="ignore"):
+        dists = c_sq[None, :] - 2.0 * (q @ centroids.T)
+    probes = (
+        np.argpartition(dists, nprobe - 1, axis=1)[:, :nprobe]
+        if nprobe < nlist else np.tile(np.arange(nlist), (len(queries), 1))
+    )
+    return np.asarray(cluster_sizes, dtype=np.int64)[probes].sum(axis=1)
+
+
 def evaluate_clustering(
     query_set: dict,
     centroids: np.ndarray,

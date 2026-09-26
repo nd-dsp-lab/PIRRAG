@@ -1,0 +1,22 @@
+# Regenerable large artifacts (see PIR_HANDOFF.md §6 and openfhe_core/fhe_run_n128/README.md)
+prototype/pir_n128/*.npy
+wiki-rag/verify_p43/baseline/
+wiki-rag/verify_p43/n128/
+wiki-rag/verify_p43/n16/
+openfhe_core/fhe_run_n128/work/
+
+__pycache__/
+*.pyc
+.venv*/
+# Sweep-internal holdout clusterings (baseline k-means alone is 135-215 MB at 1M/10M); reports are kept
+wiki-rag/cluster_size_sweep_1M/baseline/
+wiki-rag/cluster_size_sweep_1M/n*/
+wiki-rag/cluster_size_sweep_10M/baseline/
+wiki-rag/cluster_size_sweep_10M/n*/
+wiki-rag/cluster_size_sweep_small*/N*/baseline/
+# Large regenerable FHE text inputs
+openfhe_core/openfhe_inputs_1M_n256/centroids.txt
+openfhe_core/openfhe_inputs_10M_n256/centroids.txt
+.DS_Store
+# Delivery zips duplicate the bundle directories
+wiki-rag/**/cluster_*.zip

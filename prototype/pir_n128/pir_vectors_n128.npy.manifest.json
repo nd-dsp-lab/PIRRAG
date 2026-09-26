@@ -1,0 +1,16 @@
+{
+  "layout": "cluster-major",
+  "sizing_mode": "constant-size",
+  "nlist": 508,
+  "cluster_size": 128,
+  "n_rows": 65024,
+  "n_real_rows": 65000,
+  "n_padding_rows": 24,
+  "padding_sentinel": -1,
+  "address_formula": "cluster_id * cluster_size + index",
+  "offsets": null,
+  "record_width": 768,
+  "id_space": "database",
+  "source_clustering": "/Users/jiachenzhao/research/ragpiano-cluster/wiki-rag/ivf_output_n128",
+  "note": "Rows are in cluster-major order, so the row index IS the PIR address. The client does not need lists.json. Padding rows are blank/zero and must be discarded by the client."
+}

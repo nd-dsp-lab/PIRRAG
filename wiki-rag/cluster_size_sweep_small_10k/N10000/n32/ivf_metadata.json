@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "sizing_mode": "constant-size",
+  "n_vectors": 10000,
+  "dim": 768,
+  "nlist": 313,
+  "cluster_size": 32,
+  "total_slots": 10016,
+  "n_padded_slots": 16,
+  "padding_sentinel": -1,
+  "id_mapping": "global_vector_id = slots[cid][idx]; slot_address = cid * cluster_size + idx",
+  "id_space": "database",
+  "assignment": "balanced",
+  "assignment_params": {
+    "top_m": 32,
+    "price_iters": 200,
+    "strategy": "balanced",
+    "price_iters_run": 200,
+    "overflow_after_prices": 608,
+    "n_evicted": 608,
+    "n_outside_topm": 561,
+    "lambda_max": 0.1390051794876393,
+    "lambda_nonzero_frac": 0.8753993610223643,
+    "candidate_search_seconds": 0.012,
+    "assignment_seconds": 0.132
+  },
+  "index_type": "ivf-flat",
+  "centroid_space": "raw",
+  "nprobe": 10,
+  "recall_k": 10,
+  "pq": null,
+  "kmeans": {
+    "niter": 20,
+    "seed": 1234,
+    "min_points_per_centroid": 1,
+    "max_points_per_centroid": 256
+  },
+  "recall_mode": "prefix-heldout",
+  "recall_metric_name": "heldout_recall@10",
+  "recall_by_nprobe": {},
+  "artifacts": {
+    "centroids": "centroids.npy",
+    "slots": "cluster_slots.npy",
+    "lists": "lists.json"
+  },
+  "diagnostics": {
+    "distance_units": "squared_l2",
+    "size_histogram": {
+      "16": 1,
+      "32": 312
+    },
+    "n_padded_slots": 16,
+    "padded_cluster_ids": [
+      172
+    ],
+    "n_forced": 3153,
+    "frac_forced": 0.3153,
+    "n_outside_topm": 561,
+    "mean_sq_dist_assigned": 0.2080421734303236,
+    "mean_sq_dist_nearest": 0.18989574340581894,
+    "balance_penalty_ratio": 1.095559962003596,
+    "delta_sq_dist": {
+      "mean": 0.01814643002450466,
+      "median": 0.0,
+      "p95": 0.11115845441818215,
+      "max": 0.4105924367904663
+    },
+    "assigned_rank_histogram": {
+      "0": 6847,
+      "1": 840,
+      "2": 489,
+      "3": 263,
+      "4": 173,
+      "5": 152,
+      "6": 97,
+      "7": 70,
+      "8": 45,
+      "9": 46,
+      "10": 37,
+      "11": 35,
+      "12": 33,
+      "13": 27,
+      "14": 18,
+      "15": 28,
+      "16": 21,
+      "17": 20,
+      "18": 20,
+      "19": 24,
+      "20": 21,
+      "21": 24,
+      "22": 17,
+      "23": 11,
+      "24": 12,
+      "25": 10,
+      "26": 9,
+      "27": 17,
+      "28": 4,
+      "29": 12,
+      "30": 7,
+      "31": 10,
+      "32": 561
+    },
+    "total_assignment_cost": 2080.421734303236,
+    "retrievability_valid_up_to": 32,
+    "retrievability_at_nprobe": {
+      "1": 0.6847,
+      "2": 0.7687,
+      "4": 0.8439,
+      "8": 0.8931,
+      "16": 0.92,
+      "25": 0.937,
+      "32": 0.9439
+    },
+    "dual_lower_bound": 2031.177052309827,
+    "duality_gap_pct": 2.4244406432914607,
+    "per_cluster_mean_sq_dist": {
+      "min": 0.09741784632205963,
+      "p95": 0.2955821523442864,
+      "max": 0.5150083098560572
+    }
+  }
+}
