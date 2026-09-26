@@ -154,6 +154,7 @@ The cluster width n is the one with the lowest total cost at each size.
 |---|---|---|---|---|---|---|
 | 1k | 1,000 (rows 0–999 of the 65k index) | 32 | 32 | **2** | 64 | `wiki-rag/cluster_size_sweep_small/N1000/n32/` |
 | 5k | 5,000 (rows 0–4,999) | 64 | 79 | **6** | 384 | `wiki-rag/cluster_size_sweep_small/N5000/n64/` |
+| 10k | 10,000 (rows 0–9,999) | 128 | 79 | **6** | 768 | `wiki-rag/cluster_size_sweep_small_10k/N10000/n128/` |
 | 65k | 65,000 (`wiki_index__top_100000`) | 128 | 508 | **43** | 5,504 | `wiki-rag/ivf_output_n128/` |
 | 1M | 702,873 (`faiss_index__top_1000000`) | 256 | 2,746 | **232** | 59,392 | `wiki-rag/ivf_output_1M_n256/` |
 | 10M | 1,120,486 (`faiss_index__top_10000000`) | 256 | 4,377 | **546** | 139,776 | `wiki-rag/ivf_output_10M_n256/` |

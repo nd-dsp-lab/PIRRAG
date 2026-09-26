@@ -1,0 +1,37 @@
+Cluster balance report
+============================================================
+cluster_size=16 nlist=625 n_vectors=10000 strategy=balanced
+
+Cluster occupancy (real ids per cluster)
+  distinct sizes : 1
+  histogram      : 16x625
+  padded slots   : 0 in cluster(s) none
+
+Balance penalty (squared L2, vs unconstrained nearest centroid)
+  mean dist assigned : 0.204981
+  mean dist nearest  : 0.178003
+  penalty ratio      : 1.151557
+  delta mean/med/p95/max : 0.026978 / 0.000000 / 0.141830 / 0.474091
+
+Displacement
+  forced off nearest : 3,388 (33.88%)
+  outside top-m      : 790
+
+Certified optimality
+  total cost   : 2049.8105
+  dual bound   : 1964.2879
+  duality gap  : 4.354%
+
+Retrievability@p (analytic ceiling: fraction of vectors whose
+assigned cluster is within the query's top-p centroids)
+  valid only for p <= top_m = 32; beyond that the metric saturates artificially
+  p=1     0.6612
+  p=2     0.7196
+  p=4     0.7746
+  p=8     0.8286
+  p=16    0.8722
+  p=25    0.9040
+  p=32    0.9210
+
+Per-cluster mean distance spread
+  min=0.093780  p95=0.311863  max=0.567716

@@ -13,7 +13,7 @@ wiki-rag/cluster_size_sweep_1M/baseline/
 wiki-rag/cluster_size_sweep_1M/n*/
 wiki-rag/cluster_size_sweep_10M/baseline/
 wiki-rag/cluster_size_sweep_10M/n*/
-wiki-rag/cluster_size_sweep_small/N*/baseline/
+wiki-rag/cluster_size_sweep_small*/N*/baseline/
 # Large regenerable FHE text inputs
 openfhe_core/openfhe_inputs_1M_n256/centroids.txt
 openfhe_core/openfhe_inputs_10M_n256/centroids.txt
