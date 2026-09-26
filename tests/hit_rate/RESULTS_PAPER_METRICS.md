@@ -12,14 +12,15 @@ the same query set for every system.
 
 | system | database | probes p | NQ | FEVER | HotpotQA |
 |---|---|---|---|---|---|
-| **RAG-PIANO (ours)** | 65k, 508 clusters × 128 | 43 | 97 / 92.7 † | **92 / 86.3** | **88 / 87.7** |
-| RAG-PIANO (ours) | 65k | 100 | 100 / 97.1 † | 97 / 93.9 | 95 / 94.7 |
-| RAG-PIANO (ours) | 65k | 10 | 92 / 79.1 † | 74 / 66.6 | 71 / 70.3 |
+| **RAG-PIANO (ours)** | 65k, 508 clusters × 128 | 43 | **93 / 90.6** | **92 / 86.3** | **88 / 87.7** |
+| RAG-PIANO (ours) | 65k | 100 | 97 / 95.4 | 97 / 93.9 | 95 / 94.7 |
+| RAG-PIANO (ours) | 65k | 10 | 77 / 74.2 | 74 / 66.6 | 71 / 70.3 |
 | **RAG-PIANO (ours)** | 10M (1.12M docs), 4,377 clusters × 256 | 546 | 98 / 94.3 † | **89 / 81.1** | **88 / 84.4** |
 | Tiptoe | 1M (703k docs), 409 clusters | 1 | 1 / 0.4 | 2 / 1.5 | 3 / 0.9 |
 
-† NQ ran on the wrong query text (see below); the numbers are a valid fidelity
-check of the pipeline but not an NQ result. Hit@1 equals Hit@10 for RAG-PIANO on
+† The 10M NQ run still used the wrong query text (see below) and awaits a rerun;
+its number is a valid fidelity check of the pipeline but not an NQ result. The 65k
+NQ rows are from the corrected rerun (question vectors verified 100/100). Hit@1 equals Hit@10 for RAG-PIANO on
 every dataset (the final exact rerank ranks the true nearest document first
 whenever it was fetched), so "Hit Rate" here is also the top-1 hit rate.
 
@@ -29,9 +30,9 @@ distances reported by the secure pipeline are reproduced to 1e-6 for all 199
 FEVER/HotpotQA queries, confirming the embedding, the prompt and the row→document
 mapping.
 
-## The NQ bug
+## The NQ bug (fixed for 65k; 10M rerun pending)
 
-The NQ query vectors used in every RAG-PIANO run were produced from the **long
+The NQ query vectors used in the original RAG-PIANO runs were produced from the **long
 answer passage**, not from `question_text`: the reported distances match
 `"Represent this query for retrieval: {answer}"` for 100/100 queries and the
 question for 0/100. FEVER and HotpotQA used the correct text. Because the answer
@@ -40,7 +41,10 @@ from a question, so the NQ column overstates NQ performance — it should be rea
 as "the secure pipeline reproduces plaintext retrieval for the vectors it was
 given" (97 % / 92.7 % at 65k, 98 % / 94.3 % at 10M). Fix: regenerate
 `queries/natural_questions/query_*.txt` from `question_text` with the same prompt
-and rerun NQ only (65k at p=43, 10M at p=546); nothing else changes.
+and rerun NQ only; nothing else changes. Done for 65k (p=10/43/100; new vectors
+verified to match the question embedding 100/100): NQ drops from the inflated
+97 / 92.7 to a genuine **93 / 90.6** at p=43 (77 / 74.2 at p=10, 97 / 95.4 at p=100),
+in line with FEVER and HotpotQA. The 10M NQ rerun (p=546) is still pending.
 
 ## Why Tiptoe scores near zero
 
