@@ -72,6 +72,26 @@ a 1,000-document subset, where one cluster is a large slice of the database. At
 700k documents the same design collapses; the comparison is between systems at
 scale, not a change in Tiptoe's implementation.
 
+
+## Hit@1 head-to-head (fair comparison independent of how many documents are returned)
+
+Hit@1 = the first document returned is the plaintext exact nearest document.
+Tiptoe returned only 2.5–4.2 documents per query (a single one for 45–65 % of
+queries), so its Hit@10 is really Hit@(what it returned); Hit@1 removes that
+asymmetry. For RAG-PIANO Hit@1 = Hit@10 (exact rerank), so its column is the same
+as the Hit Rate table.
+
+| system | database | p | NQ | FEVER | HotpotQA |
+|---|---|---|---|---|---|
+| **RAG-PIANO** | 65k, 508 × 128 | 43 | **93** | **92** | **88** |
+| RAG-PIANO | 65k | 100 | 97 | 97 | 95 |
+| RAG-PIANO | 65k | 10 | 77 | 74 | 71 |
+| **RAG-PIANO** | 10M, 4,377 × 256 | 546 | 98 † | **88** | **88** |
+| Tiptoe | 1M, 409 clusters | 1 | 0 | 2 | 1 |
+
+(Tiptoe under its own unprompted query embedding: NQ 0, FEVER 3, HotpotQA 2 —
+within a point.) † 10M NQ still on the old answer-passage vectors; rerun pending.
+
 ## Notes for the caption
 
 - RAG-PIANO 65k p=43 is the operating point matched to "top-100 of 4096" on
