@@ -71,3 +71,52 @@ returned on average only 2.5–4.2 documents per query (10 for 9–30 of 100 que
 - `results/<run>/` — parsed inputs and results for each run; `results/coverage*.json`.
 
 Inputs: `topk_summary*.json` from the batched PIR runs (`{dataset, id, top_k:[{index, distance}]}`, rows are FAISS row ids of the named index). A sanity check that must pass before trusting a file: the 300 top-10 lists should all differ — an earlier 65k file had one identical list (identical distances) for every query, i.e. the same query vector was used throughout.
+
+---
+
+# Paper metrics: agreement with plaintext retrieval (Table III definition)
+
+The draft's Table III does not use dataset ground truth. It defines **Hit Rate** as
+"the most-relevant document appears in the returned top-10" and **Top-10
+Accuracy** as the overlap with the plaintext top-10 reference. Reproduced here as:
+
+- reference = exact (brute-force) top-10 over the full database for the query
+  vector, computed with the repo's embedding (`BAAI/bge-base-en`, query prompt
+  `"Represent this query for retrieval: …"`, `plaintext_ref/embed_queries.py`);
+- **Hit@K** = the plaintext top-1 document is among the secure system's first K results;
+- **Acc@10** = |secure top-10 ∩ plaintext top-10| / 10.
+
+Validation: with this embedding the squared distances reported in the
+collaborator's `top_k` are reproduced to 1e-6 for all FEVER and HotpotQA queries
+(199/199), which confirms the embedding, the prompt and the row→document mapping.
+
+**NQ caveat.** The NQ query vectors used in all RAG-PIANO runs are the long
+`answer` passage under the query prompt, not `question_text` (0/100 match with the
+question, 100/100 with the answer passage). The NQ rows below therefore measure
+the secure pipeline's fidelity for the vectors it was given — valid as a fidelity
+number, but the queries should be regenerated from `question_text` for the final
+paper; retrieving an answer passage that is itself corpus text is easier than
+retrieving from a question. (`metrics_*_asrun.json` use the as-run vectors;
+`metrics_*.json` score NQ against the question reference and are not meaningful.)
+
+| system | FEVER hit@1 / hit@10 / acc@10 | HotpotQA hit@1 / hit@10 / acc@10 | NQ (as run, see caveat) hit@1 / hit@10 / acc@10 |
+|---|---|---|---|
+| RAG-PIANO 65k, p=10 | 0.74 / 0.74 / 0.666 | 0.71 / 0.71 / 0.703 | 0.92 / 0.92 / 0.791 |
+| RAG-PIANO 65k, p=43 | 0.92 / 0.92 / 0.863 | 0.88 / 0.88 / 0.877 | 0.97 / 0.97 / 0.927 |
+| RAG-PIANO 65k, p=100 | 0.97 / 0.97 / 0.939 | 0.95 / 0.95 / 0.947 | 1.00 / 1.00 / 0.971 |
+| RAG-PIANO 10M, p=546 | 0.88 / 0.89 / 0.811 | 0.88 / 0.88 / 0.844 | 0.98 / 0.98 / 0.943 |
+| Tiptoe, 1M (409 clusters) | 0.02 / 0.02 / 0.015 | 0.01 / 0.03 / 0.009 | 0.00 / 0.01 / 0.004 |
+
+Hit@1 ≈ Hit@10 for RAG-PIANO because the final step is an exact rerank of the
+fetched candidates: whenever the true nearest document is fetched it ranks first.
+The gap between p=43 and p=100 on real FEVER/HotpotQA queries (0.92 → 0.97) is
+larger than on the held-out corpus vectors the sweep used to match p (0.953 vs
+0.952 recall@10): real questions sit farther from the corpus than held-out corpus
+vectors do, so p matched on the latter is slightly optimistic for the former.
+
+Tiptoe's reference uses the question embedding; its own query embedding has no
+prompt and it ranks inside a single PCA-192/5-bit cluster, hence near-zero
+agreement with exact retrieval even though its results are topically related.
+
+Reproduce: `plaintext_ref/embed_queries.py` (needs `sentence-transformers`), then
+`QFILE=queries_asrun.npy python plaintext_ref/paper_metrics.py <scratch> 65k index.faiss out.json "label=topk_summary.json" …`.
