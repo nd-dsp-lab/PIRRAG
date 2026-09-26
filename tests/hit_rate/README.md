@@ -50,7 +50,18 @@ returned on average only 2.5–4.2 documents per query (10 for 9–30 of 100 que
 |---|---|---|---|
 | FEVER | 0.08 | 0.12 | 0.098 |
 | HotpotQA | 0.06 | 0.09 | 0.070 |
+| NQ (title) | 0.00 | 0.01 | 0.010 |
 | NQ (strict) | 0.00 | 0.00 | 0.000 |
+
+## Side by side (hit@1 / hit@10)
+
+| system | FEVER | HotpotQA | NQ (answer page) | NQ (strict) |
+|---|---|---|---|---|
+| Tiptoe, 1M, 409 clusters | 0.08 / 0.12 | 0.06 / 0.09 | 0.00 / 0.01 | 0.00 / 0.00 |
+| RAG-PIANO, 65k, p=10 | 0.56 / 0.67 | 0.24 / 0.51 | 0.14 / 0.15 | 0.01 / 0.02 |
+| RAG-PIANO, 65k, p=43 | 0.56 / 0.68 | 0.27 / 0.54 | 0.14 / 0.15 | 0.01 / 0.03 |
+| RAG-PIANO, 65k, p=100 | 0.59 / 0.70 | 0.28 / 0.55 | 0.15 / 0.17 | 0.01 / 0.03 |
+| RAG-PIANO, 10M, p=546 | 0.61 / 0.73 | 0.39 / 0.65 | 0.40 / 0.50 | 0.14 / 0.17 |
 
 ## Files
 
