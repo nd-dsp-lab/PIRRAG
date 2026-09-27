@@ -17,6 +17,7 @@ the same query set for every system.
 | RAG-PIANO (ours) | 65k | 10 | 77 / 74.2 | 74 / 66.6 | 71 / 70.3 |
 | **RAG-PIANO (ours)** | 10M (1.12M docs), 4,377 clusters × 256 | 546 | 98 / 94.3 † | **89 / 81.1** | **88 / 84.4** |
 | Tiptoe | 1M (703k docs), 409 clusters | 1 | 1 / 0.4 | 2 / 1.5 | 3 / 0.9 |
+| Tiptoe | 10M (1.12M docs), 56,024 clusters, simulated ranking ‡ | 1 | 3 / 2.2 | 7 / 2.6 | 4 / 1.8 |
 
 † The 10M NQ run still used the wrong query text (see below) and awaits a rerun;
 its number is a valid fidelity check of the pipeline but not an NQ result. The 65k
@@ -67,6 +68,19 @@ run:
 4. It returned 10 documents for only 9–30 of 100 queries (2.5–4.2 on average),
    so its Hit@10 is effectively Hit@(what it returned).
 
+‡ **Tiptoe on the 10M index (same database as our 10M row).** This run reports
+"Pyfhel not available, using simulated ranking", i.e. the in-cluster ranking was
+computed in plaintext rather than under BFV — the most favourable case for
+Tiptoe's accuracy — and it used 56,024 clusters (~20 documents each). Its returned
+documents are much closer to the exact ranking than in the 1M run (first returned
+document median exact rank 192; 126/300 queries have a returned document in the
+exact top-100), but with one ~20-document cluster probed the exact nearest
+document is rarely inside it: Hit@1 is 3–4 % (NQ 3, FEVER 4, HotpotQA 4), and it
+returned only 1.4–1.75 documents per query (72–83 % of queries a single one).
+So even with the cryptographic noise removed, single-cluster probing caps Tiptoe
+at a few percent on a million-document corpus, against 88–98 % for RAG-PIANO at
+p=546 on the same index.
+
 The draft's Tiptoe numbers (87 / 54.4 on NQ, 82 / 57.1 on FEVER) were measured on
 a 1,000-document subset, where one cluster is a large slice of the database. At
 700k documents the same design collapses; the comparison is between systems at
@@ -88,6 +102,7 @@ as the Hit Rate table.
 | RAG-PIANO | 65k | 10 | 77 | 74 | 71 |
 | **RAG-PIANO** | 10M, 4,377 × 256 | 546 | 98 † | **88** | **88** |
 | Tiptoe | 1M, 409 clusters | 1 | 0 | 2 | 1 |
+| Tiptoe | 10M, 56,024 clusters, simulated ranking ‡ | 1 | 3 | 4 | 4 |
 
 (Tiptoe under its own unprompted query embedding: NQ 0, FEVER 3, HotpotQA 2 —
 within a point.) † 10M NQ still on the old answer-passage vectors; rerun pending.
