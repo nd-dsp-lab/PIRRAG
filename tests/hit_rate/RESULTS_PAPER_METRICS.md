@@ -15,13 +15,17 @@ the same query set for every system.
 | **RAG-PIANO (ours)** | 65k, 508 clusters × 128 | 43 | **93 / 90.6** | **92 / 86.3** | **88 / 87.7** |
 | RAG-PIANO (ours) | 65k | 100 | 97 / 95.4 | 97 / 93.9 | 95 / 94.7 |
 | RAG-PIANO (ours) | 65k | 10 | 77 / 74.2 | 74 / 66.6 | 71 / 70.3 |
-| **RAG-PIANO (ours)** | 10M (1.12M docs), 4,377 clusters × 256 | 546 | 98 / 94.3 † | **89 / 81.1** | **88 / 84.4** |
+| **RAG-PIANO (ours)** | 10M (1.12M docs), 4,377 clusters × 256 | 546 | **93 / 89.3** ‡‡ | **89 / 81.1** | **88 / 84.4** |
 | Tiptoe | 1M (703k docs), 409 clusters | 1 | 1 / 0.4 | 2 / 1.5 | 3 / 0.9 |
 | Tiptoe | 10M (1.12M docs), 56,024 clusters, simulated ranking ‡ | 1 | 3 / 2.2 | 7 / 2.6 | 4 / 1.8 |
 
-† The 10M NQ run still used the wrong query text (see below) and awaits a rerun;
-its number is a valid fidelity check of the pipeline but not an NQ result. The 65k
-NQ rows are from the corrected rerun (question vectors verified 100/100). Hit@1 equals Hit@10 for RAG-PIANO on
+All NQ rows are from the corrected reruns (question vectors verified). ‡‡ 10M NQ:
+95 of 100 queries from the 10M rerun (question vectors verified 95/95 on 10M).
+The 5 remaining queries (ids 2, 4, 25, 54, 62) were supplied separately, but their
+results never contain a document beyond row 702,873 even though the 10M exact
+top-10 has 2–7 such documents for each of them. They were therefore run on the 1M
+index (the first 702,873 rows of the 10M index are identical) and are excluded.
+Counting them as-is would give 91 / 87.4. Hit@1 equals Hit@10 for RAG-PIANO on
 every dataset (the final exact rerank ranks the true nearest document first
 whenever it was fetched), so "Hit Rate" here is also the top-1 hit rate.
 
@@ -31,7 +35,7 @@ distances reported by the secure pipeline are reproduced to 1e-6 for all 199
 FEVER/HotpotQA queries, confirming the embedding, the prompt and the row→document
 mapping.
 
-## The NQ bug (fixed for 65k; 10M rerun pending)
+## The NQ bug (fixed)
 
 The NQ query vectors used in the original RAG-PIANO runs were produced from the **long
 answer passage**, not from `question_text`: the reported distances match
@@ -45,7 +49,7 @@ given" (97 % / 92.7 % at 65k, 98 % / 94.3 % at 10M). Fix: regenerate
 and rerun NQ only; nothing else changes. Done for 65k (p=10/43/100; new vectors
 verified to match the question embedding 100/100): NQ drops from the inflated
 97 / 92.7 to a genuine **93 / 90.6** at p=43 (77 / 74.2 at p=10, 97 / 95.4 at p=100),
-in line with FEVER and HotpotQA. The 10M NQ rerun (p=546) is still pending.
+in line with FEVER and HotpotQA. 10M NQ (p=546) rerun: 93 / 89.3 on 95 verified queries.
 
 ## Why Tiptoe scores near zero
 
@@ -100,7 +104,7 @@ as the Hit Rate table.
 | **RAG-PIANO** | 65k, 508 × 128 | 43 | **93** | **92** | **88** |
 | RAG-PIANO | 65k | 100 | 97 | 97 | 95 |
 | RAG-PIANO | 65k | 10 | 77 | 74 | 71 |
-| **RAG-PIANO** | 10M, 4,377 × 256 | 546 | 98 † | **88** | **88** |
+| **RAG-PIANO** | 10M, 4,377 × 256 | 546 | **93** ‡‡ | **88** | **88** |
 | Tiptoe | 1M, 409 clusters | 1 | 0 | 2 | 1 |
 | Tiptoe | 10M, 56,024 clusters, simulated ranking ‡ | 1 | 3 | 4 | 4 |
 
