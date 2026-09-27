@@ -20,3 +20,6 @@ openfhe_core/openfhe_inputs_10M_n256/centroids.txt
 .DS_Store
 # Delivery zips duplicate the bundle directories
 wiki-rag/**/cluster_*.zip
+wiki-rag/db_1k_gt/*.zip
+wiki-rag/db_1k_gt/ivf_n16/
+wiki-rag/db_1k_gt/ivf_n32/

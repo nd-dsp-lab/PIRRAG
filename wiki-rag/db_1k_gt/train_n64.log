@@ -1,0 +1,61 @@
+Using CPU (use --use-gpu for faster training on large datasets)
+Loading vectors from db_1k_gt/vectors_1k.npy...
+Loaded embeddings shape: (1000, 768)
+
+======================================================================
+Training IVF-FLAT index
+  sizing: constant-size  nlist=16  cluster_size=64
+======================================================================
+
+Training IVF-flat index...
+  Vectors: 1,000
+  Dimension: 768
+  Clusters (K): 16
+  n_probe: 10
+  k-means iterations: 20
+  Using GPU: False
+
+Training k-means clustering...
+Training completed in 0.01s
+
+Skipping index.add(): assignment is computed externally (constant-size mode)
+
+======================================================================
+Capacity-Constrained Assignment
+======================================================================
+
+  Assigning 1,000 vectors to 16 clusters of size 64
+    strategy=balanced top_m=16
+    candidate search: 0.00s
+    price balancing: overflow 161 -> 48 over 200 iterations
+    assignment: 0.01s
+  Computing certified dual lower bound (one full pass over all centroids)...
+    dual bound 232.4035 in 0.00s
+
+======================================================================
+Exporting Centroids and Lists
+======================================================================
+
+Exporting centroids and lists to db_1k_gt/ivf_n64...
+  Extracting 16 centroids...
+  Extracted 16 centroids of dimension 768
+  Saved centroids to db_1k_gt/ivf_n64/centroids.npy
+  Saved slot array (16, 64) to db_1k_gt/ivf_n64/cluster_slots.npy
+  Every cluster holds exactly 64 slots (1,000 real + 24 padded)
+  Saved padded lists.json to db_1k_gt/ivf_n64/lists.json
+  Saved metadata to db_1k_gt/ivf_n64/ivf_metadata.json
+  Saved balance report to db_1k_gt/ivf_n64/cluster_balance.txt
+
+======================================================================
+Summary
+======================================================================
+Index type: ivf-flat
+Sizing mode: constant-size
+Clusters (nlist): 16
+Cluster size (n): 64
+Padded slots: 24
+Balance penalty ratio: 1.042902
+Vectors: 1,000
+Dimension: 768
+Output: db_1k_gt/ivf_n64
+======================================================================

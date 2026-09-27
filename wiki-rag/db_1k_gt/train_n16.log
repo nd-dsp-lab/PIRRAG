@@ -1,0 +1,63 @@
+Using CPU (use --use-gpu for faster training on large datasets)
+Loading vectors from db_1k_gt/vectors_1k.npy...
+Loaded embeddings shape: (1000, 768)
+
+======================================================================
+Training IVF-FLAT index
+  sizing: constant-size  nlist=63  cluster_size=16
+======================================================================
+
+Training IVF-flat index...
+  Vectors: 1,000
+  Dimension: 768
+  Clusters (K): 63
+  n_probe: 10
+  k-means iterations: 20
+  Using GPU: False
+
+Training k-means clustering...
+Training completed in 0.01s
+
+Skipping index.add(): assignment is computed externally (constant-size mode)
+
+======================================================================
+Capacity-Constrained Assignment
+======================================================================
+
+  Assigning 1,000 vectors to 63 clusters of size 16
+    strategy=balanced top_m=32
+    candidate search: 0.00s
+    price balancing: overflow 258 -> 46 over 200 iterations
+    39 vectors had their whole top-m full; exact tail fill
+    WARNING: 39 vectors (3.9%) were placed outside their top-32 candidates. Consider raising --assign-topm; retrievability@p is only valid up to top_m.
+    assignment: 0.01s
+  Computing certified dual lower bound (one full pass over all centroids)...
+    dual bound 216.1647 in 0.00s
+
+======================================================================
+Exporting Centroids and Lists
+======================================================================
+
+Exporting centroids and lists to db_1k_gt/ivf_n16...
+  Extracting 63 centroids...
+  Extracted 63 centroids of dimension 768
+  Saved centroids to db_1k_gt/ivf_n16/centroids.npy
+  Saved slot array (63, 16) to db_1k_gt/ivf_n16/cluster_slots.npy
+  Every cluster holds exactly 16 slots (1,000 real + 8 padded)
+  Saved padded lists.json to db_1k_gt/ivf_n16/lists.json
+  Saved metadata to db_1k_gt/ivf_n16/ivf_metadata.json
+  Saved balance report to db_1k_gt/ivf_n16/cluster_balance.txt
+
+======================================================================
+Summary
+======================================================================
+Index type: ivf-flat
+Sizing mode: constant-size
+Clusters (nlist): 63
+Cluster size (n): 16
+Padded slots: 8
+Balance penalty ratio: 1.123359
+Vectors: 1,000
+Dimension: 768
+Output: db_1k_gt/ivf_n16
+======================================================================
