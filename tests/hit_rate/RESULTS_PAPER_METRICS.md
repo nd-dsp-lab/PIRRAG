@@ -15,6 +15,7 @@ the same query set for every system.
 | **RAG-PIANO (ours)** | 65k, 508 clusters × 128 | 43 | **93 / 90.6** | **92 / 86.3** | **88 / 87.7** |
 | RAG-PIANO (ours) | 65k | 100 | 97 / 95.4 | 97 / 93.9 | 95 / 94.7 |
 | RAG-PIANO (ours) | 65k | 10 | 77 / 74.2 | 74 / 66.6 | 71 / 70.3 |
+| **RAG-PIANO (ours)** | 1M (703k docs), 2,746 clusters × 256 | 192 | **98 / 96.4** | **94 / 87.8** | **92 / 89.7** |
 | **RAG-PIANO (ours)** | 10M (1.12M docs), 4,377 clusters × 256 | 546 | **93 / 89.3** ‡‡ | **89 / 81.1** | **88 / 84.4** |
 | Tiptoe | 1M (703k docs), 409 clusters | 1 | 1 / 0.4 | 2 / 1.5 | 3 / 0.9 |
 | Tiptoe | 10M (1.12M docs), 56,024 clusters, simulated ranking ‡ | 1 | 3 / 2.2 | 7 / 2.6 | 4 / 1.8 |
@@ -34,6 +35,11 @@ Validation of the reference: with the repo's embedding
 distances reported by the secure pipeline are reproduced to 1e-6 for all 199
 FEVER/HotpotQA queries, confirming the embedding, the prompt and the row→document
 mapping.
+
+
+1M (p=192, secure run): 99 NQ / 100 FEVER / 98 HotpotQA queries (NQ 87 and HotpotQA 46, 59
+missing); query vectors verified for all 297, NQ on question text. Per query: 10.8 s FHE +
+49.4 s PIR = 60.6 s, 67.7 MB up / 151.0 MB down.
 
 ## The NQ bug (fixed)
 
@@ -104,6 +110,7 @@ as the Hit Rate table.
 | **RAG-PIANO** | 65k, 508 × 128 | 43 | **93** | **92** | **88** |
 | RAG-PIANO | 65k | 100 | 97 | 97 | 95 |
 | RAG-PIANO | 65k | 10 | 77 | 74 | 71 |
+| **RAG-PIANO** | 1M, 2,746 × 256 | 192 | **98** | **93** | **92** |
 | **RAG-PIANO** | 10M, 4,377 × 256 | 546 | **93** ‡‡ | **88** | **88** |
 | Tiptoe | 1M, 409 clusters | 1 | 0 | 2 | 1 |
 | Tiptoe | 10M, 56,024 clusters, simulated ranking ‡ | 1 | 3 | 4 | 4 |
