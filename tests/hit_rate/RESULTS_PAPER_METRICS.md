@@ -209,6 +209,16 @@ NQ 19 / 34 / 22.1, FEVER 17 / 30 / 19.9, HotpotQA 19 / 27 / 20.6 (~20–24 clust
 8–9 docs returned). It must be rerun on `db_1k_gt` (`modified_faiss_1000.npy`, `docs_1k.jsonl` /
 `records_1k_1024.txt`) to enter the 1k table; the earlier 1k Tiptoe run (35–43 % Hit@1) did use it.
 
+
+## Tiptoe, faithful implementation (`results_1m`, `results_10m`)
+
+√N clusters (838 on 1M, 1,059 on 10M), PCA-192, 5-bit, chunked/grouped URL retrieval — matches
+the paper's design. Hit@1 / Hit Rate / Top-10 Acc % (NQ, FEVER, HotpotQA):
+1M 13/17/9.0, 15/23/12.0, 12/14/6.2; 10M 12/16/8.5, 16/23/13.0, 11/13/6.3. Its own summary
+agrees (recall@1 0.13/0.15/0.12 on 1M) and the chosen cluster contains the nearest document for
+30–41 % of queries — consistent with our plaintext replica (36 %) and the paper's "roughly 35 %".
+These supersede the earlier 1M/10M Tiptoe rows.
+
 ## Notes for the caption
 
 - RAG-PIANO 65k p=43 is the operating point matched to "top-100 of 4096" on
