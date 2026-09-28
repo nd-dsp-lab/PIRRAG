@@ -118,6 +118,25 @@ as the Hit Rate table.
 (Tiptoe under its own unprompted query embedding: NQ 0, FEVER 3, HotpotQA 2 —
 within a point.) † 10M NQ still on the old answer-passage vectors; rerun pending.
 
+
+## 1k ground-truth database (`wiki-rag/db_1k_gt`, 16 clusters × 64)
+
+Hit Rate % / Top-10 Accuracy % against the exact top-10 inside the 1k set, all 300 queries, secure runs:
+
+| p | NQ | FEVER | HotpotQA | query s | PIR down |
+|---|---|---|---|---|---|
+| 2 | 80 / 71.1 | 72 / 70.3 | 72 / 71.4 | 0.19 | 0.40 MB |
+| **10** | **94 / 93.9** | **94 / 95.2** | **96 / 93.7** | 0.20 | 1.98 MB |
+
+p=10 is the reported operating point: p=2 loses 14–24 points of Hit Rate to save 0.01 s
+and 1.6 MB per query. Hit@1 = Hit Rate for both.
+
+The PIR-RAG / GraphPIR / Tiptoe runs supplied for this database cannot be scored: their
+logs report "Data files not found, falling back to synthetic data ... Generating synthetic
+test data: 1000 documents", so they searched random vectors (some returned ids exceed
+16,777,000), and the Tiptoe run reports real encryption = False. They must be rerun on
+`db_1k_gt` (`modified_faiss_1000.npy` = its vectors, row order = `docs_1k.jsonl`).
+
 ## Notes for the caption
 
 - RAG-PIANO 65k p=43 is the operating point matched to "top-100 of 4096" on
