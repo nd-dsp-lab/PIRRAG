@@ -131,7 +131,22 @@ Hit Rate % / Top-10 Accuracy % against the exact top-10 inside the 1k set, all 3
 p=10 is the reported operating point: p=2 loses 14–24 points of Hit Rate to save 0.01 s
 and 1.6 MB per query. Hit@1 = Hit Rate for both.
 
-The PIR-RAG / GraphPIR / Tiptoe runs supplied for this database cannot be scored: their
+Baselines on the same 1k database (rerun on real data, `accuracy_faiss.npy`), same
+queries and reference. Hit@1 % / Hit Rate % / Top-10 Accuracy %:
+
+| system | NQ | FEVER | HotpotQA |
+|---|---|---|---|
+| **RAG-PIANO, p=10** | **94 / 94 / 93.9** | **94 / 94 / 95.2** | **96 / 96 / 93.7** |
+| GraphPIR (k=16, 4 steps) | 55 / 67 / 61.0 | 60 / 76 / 61.3 | 58 / 71 / 66.8 |
+| Tiptoe (10 clusters, simulated ranking) | 34 / 68 / 47.2 | 37 / 69 / 38.0 | 37 / 72 / 50.9 |
+| PIR-RAG (32 clusters, top-3) ¶ | 17 / 32 / 22.6 | 29 / 48 / 24.1 | 26 / 46 / 27.0 |
+
+¶ About half of PIR-RAG's returned ids (487–537 of 1,000 per dataset) are ≥ 2^24
+(e.g. 16,777,515) and cannot be rows of the 1k database; subtracting 2^24 does not
+recover them. Its numbers count those as misses — an implementation fault in its
+id/URL handling, worth reporting to the collaborator.
+
+(Superseded note:) The earlier PIR-RAG / GraphPIR / Tiptoe runs supplied for this database cannot be scored: their
 logs report "Data files not found, falling back to synthetic data ... Generating synthetic
 test data: 1000 documents", so they searched random vectors (some returned ids exceed
 16,777,000), and the Tiptoe run reports real encryption = False. They must be rerun on
