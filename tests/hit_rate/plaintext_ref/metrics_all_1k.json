@@ -1,0 +1,122 @@
+[
+ {
+  "db": "1k",
+  "system": "RAG-PIANO (p=10)",
+  "dataset": "nq",
+  "n": 100,
+  "hit@1": 0.94,
+  "hit_rate": 0.94,
+  "any_hit@10": 1.0,
+  "acc@10": 0.939
+ },
+ {
+  "db": "1k",
+  "system": "RAG-PIANO (p=10)",
+  "dataset": "fever",
+  "n": 100,
+  "hit@1": 0.94,
+  "hit_rate": 0.94,
+  "any_hit@10": 1.0,
+  "acc@10": 0.952
+ },
+ {
+  "db": "1k",
+  "system": "RAG-PIANO (p=10)",
+  "dataset": "hotpot",
+  "n": 100,
+  "hit@1": 0.96,
+  "hit_rate": 0.96,
+  "any_hit@10": 1.0,
+  "acc@10": 0.937
+ },
+ {
+  "db": "1k",
+  "system": "Graph-PIR",
+  "dataset": "nq",
+  "n": 100,
+  "hit@1": 0.83,
+  "hit_rate": 0.83,
+  "any_hit@10": 0.99,
+  "acc@10": 0.794
+ },
+ {
+  "db": "1k",
+  "system": "Graph-PIR",
+  "dataset": "fever",
+  "n": 100,
+  "hit@1": 0.85,
+  "hit_rate": 0.85,
+  "any_hit@10": 0.99,
+  "acc@10": 0.795
+ },
+ {
+  "db": "1k",
+  "system": "Graph-PIR",
+  "dataset": "hotpot",
+  "n": 100,
+  "hit@1": 0.84,
+  "hit_rate": 0.84,
+  "any_hit@10": 0.99,
+  "acc@10": 0.754
+ },
+ {
+  "db": "1k",
+  "system": "Tiptoe",
+  "dataset": "nq",
+  "n": 100,
+  "hit@1": 0.35,
+  "hit_rate": 0.69,
+  "any_hit@10": 0.98,
+  "acc@10": 0.515
+ },
+ {
+  "db": "1k",
+  "system": "Tiptoe",
+  "dataset": "fever",
+  "n": 100,
+  "hit@1": 0.43,
+  "hit_rate": 0.71,
+  "any_hit@10": 0.93,
+  "acc@10": 0.424
+ },
+ {
+  "db": "1k",
+  "system": "Tiptoe",
+  "dataset": "hotpot",
+  "n": 100,
+  "hit@1": 0.4,
+  "hit_rate": 0.72,
+  "any_hit@10": 0.98,
+  "acc@10": 0.51
+ },
+ {
+  "db": "1k",
+  "system": "PIR-RAG",
+  "dataset": "nq",
+  "n": 100,
+  "hit@1": 0.17,
+  "hit_rate": 0.32,
+  "any_hit@10": 0.92,
+  "acc@10": 0.226
+ },
+ {
+  "db": "1k",
+  "system": "PIR-RAG",
+  "dataset": "fever",
+  "n": 100,
+  "hit@1": 0.29,
+  "hit_rate": 0.48,
+  "any_hit@10": 0.92,
+  "acc@10": 0.241
+ },
+ {
+  "db": "1k",
+  "system": "PIR-RAG",
+  "dataset": "hotpot",
+  "n": 100,
+  "hit@1": 0.26,
+  "hit_rate": 0.46,
+  "any_hit@10": 0.97,
+  "acc@10": 0.27
+ }
+]

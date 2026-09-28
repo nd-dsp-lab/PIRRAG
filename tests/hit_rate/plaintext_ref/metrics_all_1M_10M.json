@@ -1,0 +1,200 @@
+[
+ {
+  "db": "1M",
+  "system": "RAG-PIANO",
+  "dataset": "nq",
+  "n": 99,
+  "hit@1": 0.9797979797979798,
+  "hit_rate": 0.9797979797979798,
+  "any_hit@10": 1.0,
+  "acc@10": 0.9636363636363636,
+  "mrr@10": 0.9797979797979798
+ },
+ {
+  "db": "1M",
+  "system": "RAG-PIANO",
+  "dataset": "fever",
+  "n": 100,
+  "hit@1": 0.93,
+  "hit_rate": 0.94,
+  "any_hit@10": 1.0,
+  "acc@10": 0.878,
+  "mrr@10": 0.935
+ },
+ {
+  "db": "1M",
+  "system": "RAG-PIANO",
+  "dataset": "hotpot",
+  "n": 98,
+  "hit@1": 0.9183673469387755,
+  "hit_rate": 0.9183673469387755,
+  "any_hit@10": 1.0,
+  "acc@10": 0.8969387755102041,
+  "mrr@10": 0.9183673469387755
+ },
+ {
+  "db": "10M",
+  "system": "RAG-PIANO",
+  "dataset": "nq",
+  "n": 95,
+  "hit@1": 0.9263157894736842,
+  "hit_rate": 0.9263157894736842,
+  "any_hit@10": 1.0,
+  "acc@10": 0.8926315789473684,
+  "mrr@10": 0.9263157894736842
+ },
+ {
+  "db": "10M",
+  "system": "RAG-PIANO",
+  "dataset": "fever",
+  "n": 100,
+  "hit@1": 0.88,
+  "hit_rate": 0.89,
+  "any_hit@10": 1.0,
+  "acc@10": 0.811,
+  "mrr@10": 0.885
+ },
+ {
+  "db": "10M",
+  "system": "RAG-PIANO",
+  "dataset": "hotpot",
+  "n": 100,
+  "hit@1": 0.88,
+  "hit_rate": 0.88,
+  "any_hit@10": 1.0,
+  "acc@10": 0.844,
+  "mrr@10": 0.88
+ },
+ {
+  "db": "1M",
+  "system": "Graph-PIR (m128)",
+  "dataset": "nq",
+  "n": 100,
+  "hit@1": 0.7,
+  "hit_rate": 0.7,
+  "any_hit@10": 0.94,
+  "acc@10": 0.637,
+  "mrr@10": 0.7
+ },
+ {
+  "db": "1M",
+  "system": "Graph-PIR (m128)",
+  "dataset": "fever",
+  "n": 100,
+  "hit@1": 0.58,
+  "hit_rate": 0.59,
+  "any_hit@10": 0.83,
+  "acc@10": 0.54,
+  "mrr@10": 0.585
+ },
+ {
+  "db": "1M",
+  "system": "Graph-PIR (m128)",
+  "dataset": "hotpot",
+  "n": 100,
+  "hit@1": 0.48,
+  "hit_rate": 0.48,
+  "any_hit@10": 0.9,
+  "acc@10": 0.494,
+  "mrr@10": 0.48
+ },
+ {
+  "db": "1M",
+  "system": "Tiptoe",
+  "dataset": "nq",
+  "n": 100,
+  "hit@1": 0.13,
+  "hit_rate": 0.17,
+  "any_hit@10": 0.45,
+  "acc@10": 0.09,
+  "mrr@10": 0.14375
+ },
+ {
+  "db": "1M",
+  "system": "Tiptoe",
+  "dataset": "fever",
+  "n": 100,
+  "hit@1": 0.15,
+  "hit_rate": 0.23,
+  "any_hit@10": 0.54,
+  "acc@10": 0.12,
+  "mrr@10": 0.18666666666666668
+ },
+ {
+  "db": "1M",
+  "system": "Tiptoe",
+  "dataset": "hotpot",
+  "n": 100,
+  "hit@1": 0.12,
+  "hit_rate": 0.14,
+  "any_hit@10": 0.37,
+  "acc@10": 0.062,
+  "mrr@10": 0.12833333333333333
+ },
+ {
+  "db": "10M",
+  "system": "Graph-PIR (m128)",
+  "dataset": "nq",
+  "n": 100,
+  "hit@1": 0.68,
+  "hit_rate": 0.68,
+  "any_hit@10": 0.89,
+  "acc@10": 0.613,
+  "mrr@10": 0.68
+ },
+ {
+  "db": "10M",
+  "system": "Graph-PIR (m128)",
+  "dataset": "fever",
+  "n": 100,
+  "hit@1": 0.47,
+  "hit_rate": 0.48,
+  "any_hit@10": 0.83,
+  "acc@10": 0.484,
+  "mrr@10": 0.475
+ },
+ {
+  "db": "10M",
+  "system": "Graph-PIR (m128)",
+  "dataset": "hotpot",
+  "n": 100,
+  "hit@1": 0.51,
+  "hit_rate": 0.51,
+  "any_hit@10": 0.88,
+  "acc@10": 0.473,
+  "mrr@10": 0.51
+ },
+ {
+  "db": "10M",
+  "system": "Tiptoe",
+  "dataset": "nq",
+  "n": 100,
+  "hit@1": 0.12,
+  "hit_rate": 0.16,
+  "any_hit@10": 0.46,
+  "acc@10": 0.085,
+  "mrr@10": 0.13666666666666666
+ },
+ {
+  "db": "10M",
+  "system": "Tiptoe",
+  "dataset": "fever",
+  "n": 100,
+  "hit@1": 0.16,
+  "hit_rate": 0.23,
+  "any_hit@10": 0.5,
+  "acc@10": 0.13,
+  "mrr@10": 0.1855952380952381
+ },
+ {
+  "db": "10M",
+  "system": "Tiptoe",
+  "dataset": "hotpot",
+  "n": 100,
+  "hit@1": 0.11,
+  "hit_rate": 0.13,
+  "any_hit@10": 0.4,
+  "acc@10": 0.063,
+  "mrr@10": 0.11833333333333335
+ }
+]

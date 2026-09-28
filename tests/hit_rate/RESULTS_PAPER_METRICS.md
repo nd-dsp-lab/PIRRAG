@@ -226,6 +226,27 @@ Hit@1 / Hit Rate / Top-10 Acc %: see `plaintext_ref/metrics_graphpir_m128.json`
 (file recall@10: 1M NQ 0.637, FEVER 0.540, HotpotQA 0.494; 10M 0.613, 0.484, 0.473).
 Supersedes the earlier 1M/10M GraphPIR rows as the stronger baseline configuration.
 
+
+## Recommended paper metric: AnyHit@10 + Top-10 Accuracy (all systems, same definition)
+
+AnyHit@10 = at least one of the plaintext top-10 appears in the returned top-10. Top-10 Acc as before.
+The old draft's baseline numbers (PIR-RAG 96/97, Tiptoe 87/82 "Hit") are consistent with this definition.
+
+| db | system | NQ | FEVER | HotpotQA |
+|---|---|---|---|---|
+| 1k | RAG-PIANO p=10 | 100 / 93.9 | 100 / 95.2 | 100 / 93.7 |
+| 1k | Graph-PIR | 99 / 79.4 | 99 / 79.5 | 99 / 75.4 |
+| 1k | Tiptoe | 98 / 51.5 | 93 / 42.4 | 98 / 51.0 |
+| 1k | PIR-RAG | 92 / 22.6 | 92 / 24.1 | 97 / 27.0 |
+| 1M | RAG-PIANO p=192 | 100 / 96.4 | 100 / 87.8 | 100 / 89.7 |
+| 1M | Graph-PIR m128 | 94 / 63.7 | 83 / 54.0 | 90 / 49.4 |
+| 1M | Tiptoe | 45 / 9.0 | 54 / 12.0 | 37 / 6.2 |
+| 10M | RAG-PIANO p=546 | 100 / 89.3 | 100 / 81.1 | 100 / 84.4 |
+| 10M | Graph-PIR m128 | 89 / 61.3 | 83 / 48.4 | 88 / 47.3 |
+| 10M | Tiptoe | 46 / 8.5 | 50 / 13.0 | 40 / 6.3 |
+
+Full metric set (Hit@1, Hit Rate, AnyHit@10, Top-10 Acc, MRR@10): `plaintext_ref/metrics_all_1k.json`, `metrics_all_1M_10M.json`.
+
 ## Notes for the caption
 
 - RAG-PIANO 65k p=43 is the operating point matched to "top-100 of 4096" on
