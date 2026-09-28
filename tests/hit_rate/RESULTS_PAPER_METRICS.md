@@ -219,6 +219,13 @@ agrees (recall@1 0.13/0.15/0.12 on 1M) and the chosen cluster contains the neare
 30–41 % of queries — consistent with our plaintext replica (36 %) and the paper's "roughly 35 %".
 These supersede the earlier 1M/10M Tiptoe rows.
 
+
+## GraphPIR m128 (larger search budget, `results_graphpir_m128`)
+
+Hit@1 / Hit Rate / Top-10 Acc %: see `plaintext_ref/metrics_graphpir_m128.json`
+(file recall@10: 1M NQ 0.637, FEVER 0.540, HotpotQA 0.494; 10M 0.613, 0.484, 0.473).
+Supersedes the earlier 1M/10M GraphPIR rows as the stronger baseline configuration.
+
 ## Notes for the caption
 
 - RAG-PIANO 65k p=43 is the operating point matched to "top-100 of 4096" on
