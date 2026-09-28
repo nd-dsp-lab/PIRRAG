@@ -137,6 +137,22 @@ test data: 1000 documents", so they searched random vectors (some returned ids e
 16,777,000), and the Tiptoe run reports real encryption = False. They must be rerun on
 `db_1k_gt` (`modified_faiss_1000.npy` = its vectors, row order = `docs_1k.jsonl`).
 
+
+## Tiptoe "better params" runs (380 clusters on 1M, 405 on 10M; simulated ranking)
+
+Hit@1 % (NQ / FEVER / HotpotQA): **1M 0 / 2 / 0**, **10M 0 / 1 / 1**. Hit@10 ≤ 4 %, Top-10 Acc ≤ 1.8 %.
+2.4–4.5 documents returned per query.
+
+These are still far below what the configuration can deliver. A plaintext replica of
+exactly this pipeline on 1M (PCA 768→192, 5-bit quantisation, 380 k-means clusters, one
+probe, in-cluster ranking) gives Hit@1 = **16–26 %** (nearest document inside the chosen
+cluster for 36 % of queries), versus 0–2 % measured. The first document these runs return
+has a median exact rank of ≈5,000–7,600; only 16–18 of 300 queries have any returned
+document in the exact top-10. The remaining gap is an implementation fault in the in-cluster
+ranking or in the score→document / URL mapping, not a property of Tiptoe. For the paper,
+report Tiptoe as the plaintext replica (≈21–26 % Hit@1 on 1M, ≤44 % with the paper's 20 %
+boundary duplication at full precision), not these runs.
+
 ## Notes for the caption
 
 - RAG-PIANO 65k p=43 is the operating point matched to "top-100 of 4096" on
