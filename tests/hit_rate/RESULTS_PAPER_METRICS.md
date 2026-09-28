@@ -183,6 +183,22 @@ The 1M run is now in the plausible range: a plaintext replica of PCA-192 + 5-bit
 ~380 clusters gives 16–26 % Hit@1, and the full-precision upper bound with the paper's
 boundary duplication is 44 %. These supersede the earlier 1M Tiptoe rows (0–3 %).
 
+
+## GraphPIR at scale (collaborator's `results_graphpir`, same queries and exact reference)
+
+Hit@1 % / Hit Rate % / Top-10 Accuracy % (their exact lists match our plaintext reference 94–100 %):
+
+| database | NQ | FEVER | HotpotQA |
+|---|---|---|---|
+| 1k | 83 / 83 / 79.4 | 85 / 85 / 79.5 | 84 / 84 / 75.4 |
+| 1M | 19 / 19 / 15.8 | 15 / 15 / 11.2 | 15 / 15 / 9.4 |
+| 10M | 23 / 23 / 16.4 | 15 / 15 / 11.7 | 11 / 11 / 7.7 |
+
+The graph walk (fixed step and neighbour budget) covers a large fraction of a 1k graph but
+a vanishing fraction of a million-node one, so its accuracy collapses with N while
+RAG-PIANO's stays at 88–98 % Hit@1 (1M p=192, 10M p=546). The earlier 1k GraphPIR run
+(55–60 % Hit@1, k=16, 4 steps) used a smaller search budget than this one.
+
 ## Notes for the caption
 
 - RAG-PIANO 65k p=43 is the operating point matched to "top-100 of 4096" on
