@@ -199,6 +199,16 @@ a vanishing fraction of a million-node one, so its accuracy collapses with N whi
 RAG-PIANO's stays at 88–98 % Hit@1 (1M p=192, 10M p=546). The earlier 1k GraphPIR run
 (55–60 % Hit@1, k=16, 4 steps) used a smaller search budget than this one.
 
+
+## Latest Tiptoe 1k run (`acc_1000_docs_*.jsonl`) — wrong database
+
+Its doc ids index the **first 1,000 rows of the 65k index** (all 2,530 returned passages equal
+that row's text), not the 1k ground-truth database (`db_1k_gt`), so it cannot be compared with
+the other 1k rows. Scored against exact search on that prefix-1k (Hit@1 / Hit Rate / Top-10 Acc):
+NQ 19 / 34 / 22.1, FEVER 17 / 30 / 19.9, HotpotQA 19 / 27 / 20.6 (~20–24 clusters of ~37 docs,
+8–9 docs returned). It must be rerun on `db_1k_gt` (`modified_faiss_1000.npy`, `docs_1k.jsonl` /
+`records_1k_1024.txt`) to enter the 1k table; the earlier 1k Tiptoe run (35–43 % Hit@1) did use it.
+
 ## Notes for the caption
 
 - RAG-PIANO 65k p=43 is the operating point matched to "top-100 of 4096" on
