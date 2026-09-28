@@ -168,6 +168,21 @@ ranking or in the score→document / URL mapping, not a property of Tiptoe. For 
 report Tiptoe as the plaintext replica (≈21–26 % Hit@1 on 1M, ≤44 % with the paper's 20 %
 boundary duplication at full precision), not these runs.
 
+
+## Tiptoe runs of 2026-09-28 (simulated ranking; 12 clusters on 1k, 320 on 1M)
+
+Hit@1 % / Hit Rate % / Top-10 Accuracy % (NQ, FEVER, HotpotQA), 100 queries each, 10 docs returned:
+
+| database | NQ | FEVER | HotpotQA |
+|---|---|---|---|
+| 1k (12 clusters) | 35 / 69 / 51.5 | 43 / 71 / 42.4 | 40 / 72 / 51.0 |
+| 1M (320 clusters, √N-sized as in the paper) | 15 / 26 / 15.1 | 11 / 24 / 14.4 | 11 / 24 / 13.6 |
+| 10M (405 clusters) | not finished in the supplied logs | | |
+
+The 1M run is now in the plausible range: a plaintext replica of PCA-192 + 5-bit +
+~380 clusters gives 16–26 % Hit@1, and the full-precision upper bound with the paper's
+boundary duplication is 44 %. These supersede the earlier 1M Tiptoe rows (0–3 %).
+
 ## Notes for the caption
 
 - RAG-PIANO 65k p=43 is the operating point matched to "top-100 of 4096" on
