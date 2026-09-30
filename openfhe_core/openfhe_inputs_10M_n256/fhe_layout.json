@@ -1,0 +1,28 @@
+{
+  "n_centroids": 4377,
+  "dim": 768,
+  "padded_dim": 1024,
+  "centroids_per_ciphertext": 8,
+  "poly_modulus_degree": 16384,
+  "slots_per_ciphertext": 8192,
+  "n_ciphertexts": 548,
+  "last_batch_size": 1,
+  "last_batch_is_partial": true,
+  "required_rotation_indices": [
+    8,
+    16,
+    32,
+    64,
+    128,
+    256,
+    512,
+    1024,
+    2048,
+    4096
+  ],
+  "source_ivf_dir": "ivf_output_10M_n256",
+  "centroids_txt": "../openfhe_core/openfhe_inputs_10M_n256/centroids.txt",
+  "sizing_mode": "constant-size",
+  "cluster_size": 256,
+  "centroid_space": "raw"
+}

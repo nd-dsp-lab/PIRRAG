@@ -1,0 +1,13 @@
+{
+  "n_queries": 100,
+  "dim": 768,
+  "query_mode": "perturbed (db vector + N(0,0.05) noise, renormalised)",
+  "seed": 1234,
+  "n_centroids": 508,
+  "cluster_size": 128,
+  "top_k_centroids": 43,
+  "oracle_recall@10_at_p43": 0.91,
+  "clustering": "wiki-rag/ivf_output_n128",
+  "centroids_file": "openfhe_core/openfhe_inputs_n128/centroids.txt",
+  "note": "plaintext_top43 sq_dists are exact squared L2 ||q-c||^2, the quantity the CKKS kernel computes; compare FHE-decrypted distances against all_sq_dists."
+}

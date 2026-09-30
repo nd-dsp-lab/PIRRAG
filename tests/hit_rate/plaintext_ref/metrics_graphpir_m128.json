@@ -1,0 +1,32 @@
+{
+ "faiss_1m:nq": {
+  "hit@1": 0.7,
+  "hit_rate": 0.7,
+  "acc@10": 0.637
+ },
+ "faiss_1m:fever": {
+  "hit@1": 0.58,
+  "hit_rate": 0.59,
+  "acc@10": 0.54
+ },
+ "faiss_1m:hotpot": {
+  "hit@1": 0.48,
+  "hit_rate": 0.48,
+  "acc@10": 0.494
+ },
+ "faiss_10m:nq": {
+  "hit@1": 0.68,
+  "hit_rate": 0.68,
+  "acc@10": 0.613
+ },
+ "faiss_10m:fever": {
+  "hit@1": 0.47,
+  "hit_rate": 0.48,
+  "acc@10": 0.484
+ },
+ "faiss_10m:hotpot": {
+  "hit@1": 0.51,
+  "hit_rate": 0.51,
+  "acc@10": 0.473
+ }
+}

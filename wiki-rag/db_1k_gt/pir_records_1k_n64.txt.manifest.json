@@ -1,0 +1,16 @@
+{
+  "layout": "cluster-major",
+  "sizing_mode": "constant-size",
+  "nlist": 16,
+  "cluster_size": 64,
+  "n_rows": 1024,
+  "n_real_rows": 1000,
+  "n_padding_rows": 24,
+  "padding_sentinel": -1,
+  "address_formula": "cluster_id * cluster_size + index",
+  "offsets": null,
+  "record_width": 1024,
+  "id_space": "database",
+  "source_clustering": "../wiki-rag/db_1k_gt/ivf_n64",
+  "note": "Rows are in cluster-major order, so the row index IS the PIR address. The client does not need lists.json. Padding rows are blank/zero and must be discarded by the client."
+}

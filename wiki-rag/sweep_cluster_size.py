@@ -136,11 +136,16 @@ def find_min_nprobe(
                 print(f"      p={p:<5d} recall={curve[p]:.4f}")
         return curve[p]
 
-    # Is the target reachable at all? A full scan is the ceiling.
-    if recall_at(max_nprobe) < target_recall:
-        return {"nprobe": None, "recall": curve[max_nprobe], "curve": dict(curve)}
+    # Gallop upward from a small p to find a feasible upper bound before the
+    # binary search. Starting from a full scan instead would rerank the whole
+    # database for every query (a 3.4 GB gather per query at 1.1M vectors).
+    hi = 1
+    while hi < max_nprobe and recall_at(hi) < target_recall:
+        hi = min(max_nprobe, hi * 2)
+    if recall_at(hi) < target_recall:
+        return {"nprobe": None, "recall": curve[hi], "curve": dict(curve)}
 
-    lo, hi = 1, max_nprobe
+    lo = max(1, hi // 2)
     while lo < hi:
         mid = (lo + hi) // 2
         if recall_at(mid) >= target_recall:
@@ -225,11 +230,14 @@ def run_sweep(args) -> dict:
           f" (variable cluster sizes)")
     print(f"{'#' * 70}")
 
-    base_meta = train_ivf.run_pipeline(
-        _config(base_ns, k=args.baseline_nlist, cluster_size=None,
-                output_dir=str(work_dir / "baseline")),
-        vectors=vectors, dim=int(vectors.shape[1]), query_set=query_set,
-    )
+    if args.reuse_existing and (work_dir / "baseline" / ivf_io.METADATA_FILENAME).exists():
+        print(f"  reusing existing clustering in {work_dir / 'baseline'}")
+    else:
+        train_ivf.run_pipeline(
+            _config(base_ns, k=args.baseline_nlist, cluster_size=None,
+                    output_dir=str(work_dir / "baseline")),
+            vectors=vectors, dim=int(vectors.shape[1]), query_set=query_set,
+        )
     baseline_clustering = ivf_io.load_clustering(
         work_dir / "baseline", load_centroids=True
     )
@@ -241,10 +249,16 @@ def run_sweep(args) -> dict:
         [args.baseline_nprobe],
     )[args.baseline_nprobe]
 
-    baseline_candidates = float(args.baseline_nprobe * base_sizes.mean())
+    # Measured per query, not nprobe * mean size: probed clusters are larger than
+    # average (queries land in dense regions), so the naive estimate is ~1.5x low.
+    base_cands = ivf_eval.candidates_per_query(
+        query_set["queries"], baseline_clustering.centroids, base_sizes, args.baseline_nprobe,
+    )
+    baseline_candidates = float(base_cands.mean())
     target = base_eval["recall"] if args.target_recall is None else args.target_recall
     print(f"\n  BASELINE {query_set['metric_name']} = {base_eval['recall']:.4f}")
-    print(f"  candidates scanned ~ {baseline_candidates:,.0f} "
+    print(f"  candidates scanned: mean {baseline_candidates:,.0f}, "
+          f"min {base_cands.min():,} / median {int(np.median(base_cands)):,} / max {base_cands.max():,} "
           f"({100.0 * baseline_candidates / n_db:.2f}% of DB, variable per query)")
     print(f"  cluster sizes: min={base_sizes.min()} max={base_sizes.max()} "
           f"mean={base_sizes.mean():.2f}")
@@ -257,10 +271,14 @@ def run_sweep(args) -> dict:
         print(f"{'#' * 70}")
         t0 = time.time()
         out_dir = work_dir / f"n{n}"
-        meta = train_ivf.run_pipeline(
-            _config(base_ns, k=None, cluster_size=n, output_dir=str(out_dir)),
-            vectors=vectors, dim=int(vectors.shape[1]), query_set=query_set,
-        )
+        if args.reuse_existing and (out_dir / ivf_io.METADATA_FILENAME).exists():
+            print(f"  reusing existing clustering in {out_dir}")
+            meta = ivf_io.read_ivf_metadata(out_dir)
+        else:
+            meta = train_ivf.run_pipeline(
+                _config(base_ns, k=None, cluster_size=n, output_dir=str(out_dir)),
+                vectors=vectors, dim=int(vectors.shape[1]), query_set=query_set,
+            )
         clustering = ivf_io.load_clustering(out_dir, load_centroids=True)
 
         print(f"    searching for the smallest p reaching recall {target:.4f}")
@@ -340,6 +358,9 @@ def run_sweep(args) -> dict:
             "cluster_size_max": int(base_sizes.max()),
             "cluster_size_mean": float(base_sizes.mean()),
             "candidates_mean": baseline_candidates,
+            "candidates_min": int(base_cands.min()),
+            "candidates_median": float(np.median(base_cands)),
+            "candidates_max": int(base_cands.max()),
             "centroid_dists": args.baseline_nlist,
             "total_dists": baseline_total,
             "pct_db_scanned": 100.0 * baseline_candidates / n_db,
@@ -587,6 +608,9 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--niter", type=int, default=20)
     p.add_argument("--seed", type=int, default=train_ivf.DEFAULT_KMEANS_SEED)
     p.add_argument("--use-gpu", action="store_true")
+    p.add_argument("--reuse-existing", action="store_true",
+                   help="Skip training for any baseline/n<n> directory in --work-dir that already "
+                        "has ivf_metadata.json (same query split is guaranteed by the seed).")
     return p
 
 

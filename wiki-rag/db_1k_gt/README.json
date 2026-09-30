@@ -1,0 +1,8 @@
+{
+ "n_docs": 1000,
+ "source": "wiki_index__top_100000__2025-04-11 (65k)",
+ "construction": "union of every test query's 65k plaintext top-3 (882 docs), then round-robin fill by next rank to 1000; rows sorted by 65k row id",
+ "queries": "300 (fever/hotpot/nq, 100 each), BGE-base with 'Represent this query for retrieval: ' prompt; NQ uses question_text",
+ "plaintext_top10_1k": "exact top-10 within the 1k set, as 1k row ids",
+ "row_to_65k": "row_to_65k.npy[i] = 65k FAISS row of 1k row i"
+}
