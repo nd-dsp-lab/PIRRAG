@@ -24,9 +24,10 @@ plt.rcParams.update({
 BLUE, GRAY, RED = "#0F4D92", "#767676", "#B64342"
 
 # (panel name as used in the paper, sweep file, cluster width n, chosen p, x-range, label offset)
-# "700K" / "1.1M" are the real vector counts of the HF top-1M / top-10M indices.
+# Names and sizes as in the paper: 65k / 700K / 1.1M are the HF top-100k / top-1M / top-10M indices.
+N_DB = {"65k": "65,000", "700K": "702,873", "1.1M": "1,120,486"}
 CFG = [
-    ("65K", "wiki-rag/cluster_size_sweep/cluster_size_sweep.json", 128, 43, (0, 130), (8, -16)),
+    ("65k", "wiki-rag/cluster_size_sweep/cluster_size_sweep.json", 128, 43, (0, 130), (8, -16)),
     ("700K", "wiki-rag/cluster_size_sweep_1M/cluster_size_sweep.json", 256, 232, (0, 700), (7, -15)),
     ("1.1M", "wiki-rag/cluster_size_sweep_10M/cluster_size_sweep.json", 256, 546, (0, 1300), (7, -15)),
 ]
@@ -45,7 +46,7 @@ for ax, (name, path, n, p_sel, xlim, offset) in zip(axes, CFG):
     ax.plot([p_sel], [y], "o", ms=8.5, mfc="white", mec=BLUE, mew=1.9, zorder=4)
     ax.annotate(f"p = {p_sel}", (p_sel, y), textcoords="offset points", xytext=offset,
                 fontsize=10.5, color=BLUE, fontweight="bold")
-    ax.set_title(f"{name}  (n = {n})\nbaseline {target:.1f}%", fontsize=10.5, linespacing=1.3)
+    ax.set_title(f"{name}  (N = {N_DB[name]})\nn = {n},  baseline {target:.1f}%", fontsize=10.5, linespacing=1.3)
     ax.set_xlim(*xlim)
     ax.set_ylim(93, 100.3)
     ax.set_xlabel("clusters probed p")
