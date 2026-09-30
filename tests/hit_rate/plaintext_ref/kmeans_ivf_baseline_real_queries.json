@@ -1,0 +1,110 @@
+{
+ "1k": {
+  "K": 62,
+  "p": 2,
+  "size_min": 1,
+  "size_max": 36,
+  "nq": {
+   "hit": 0.72,
+   "acc": 0.57,
+   "records_mean": 36.1,
+   "records_min": 12,
+   "records_max": 65
+  },
+  "fever": {
+   "hit": 0.79,
+   "acc": 0.626,
+   "records_mean": 45.12,
+   "records_min": 10,
+   "records_max": 68
+  },
+  "hotpot": {
+   "hit": 0.77,
+   "acc": 0.652,
+   "records_mean": 44.91,
+   "records_min": 10,
+   "records_max": 70
+  }
+ },
+ "65k": {
+  "K": 4096,
+  "p": 100,
+  "size_min": 1,
+  "size_max": 103,
+  "nq": {
+   "hit": 0.94,
+   "acc": 0.911,
+   "records_mean": 2243.55,
+   "records_min": 1709,
+   "records_max": 2931
+  },
+  "fever": {
+   "hit": 0.9,
+   "acc": 0.8510000000000001,
+   "records_mean": 2448.83,
+   "records_min": 1757,
+   "records_max": 3047
+  },
+  "hotpot": {
+   "hit": 0.9,
+   "acc": 0.8730000000000001,
+   "records_mean": 2356.05,
+   "records_min": 1861,
+   "records_max": 3039
+  }
+ },
+ "1M": {
+  "K": 43867,
+  "p": 1070,
+  "size_min": 1,
+  "size_max": 186,
+  "nq": {
+   "hit": 0.99,
+   "acc": 0.9740000000000001,
+   "records_mean": 24662.31,
+   "records_min": 20442,
+   "records_max": 29153
+  },
+  "fever": {
+   "hit": 0.94,
+   "acc": 0.921,
+   "records_mean": 27465.69,
+   "records_min": 22829,
+   "records_max": 31116
+  },
+  "hotpot": {
+   "hit": 0.97,
+   "acc": 0.944,
+   "records_mean": 25506.72,
+   "records_min": 22082,
+   "records_max": 30512
+  }
+ },
+ "10M": {
+  "K": 69968,
+  "p": 1707,
+  "size_min": 1,
+  "size_max": 184,
+  "nq": {
+   "hit": 0.99,
+   "acc": 0.977,
+   "records_mean": 40260.26,
+   "records_min": 32733,
+   "records_max": 46682
+  },
+  "fever": {
+   "hit": 0.97,
+   "acc": 0.946,
+   "records_mean": 44436.63,
+   "records_min": 34737,
+   "records_max": 50273
+  },
+  "hotpot": {
+   "hit": 0.97,
+   "acc": 0.9500000000000002,
+   "records_mean": 41105.3,
+   "records_min": 35678,
+   "records_max": 48498
+  }
+ }
+}
